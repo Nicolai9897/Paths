@@ -23,7 +23,6 @@ public class Passage {
 
     }
 
-
     /**
      * Gets title.
      *
