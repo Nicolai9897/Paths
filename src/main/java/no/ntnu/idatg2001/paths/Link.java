@@ -1,11 +1,13 @@
 package no.ntnu.idatg2001.paths;
 
+import no.ntnu.idatg2001.paths.Actions.Action;
+
 import java.util.List;
 import java.util.Objects;
 
 /**
  * Link is a class to go from one passage to
- * @author Nicolai Olsen
+ * @author Nicolai Olsen & Anders Brunsberg Mariendal
  * @version 1.0-SNAPSHOT
  */
 public class Link {
@@ -72,11 +74,11 @@ public class Link {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Link link = (Link) o;
-        return text.equals(link.text) && reference.equals(link.reference) && action.equals(link.action);
+        return reference.equals(link.reference);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(text, reference, action);
+        return Objects.hash(reference);
     }
 }

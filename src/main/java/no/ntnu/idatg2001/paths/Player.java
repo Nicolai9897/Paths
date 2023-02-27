@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Class for representing the player
  * and attributes that will affect the game for the player.
- * @author Nicolai Olsen
+ * @author Nicolai Olsen & Anders Brunsberg Mariendal
  * @version 1.0-SNAPSHOT
  */
 public class Player {
