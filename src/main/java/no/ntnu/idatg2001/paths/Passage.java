@@ -5,6 +5,8 @@ import java.util.Objects;
 
 /**
  * The type Passage.
+ * @author Nicolai Olsen & Anders Brunsberg Mariendal
+ * @version 1.0-SNAPSHOT
  */
 public class Passage {
     private String title;
@@ -56,7 +58,7 @@ public class Passage {
      *
      * @return the link
      */
-    public List<Link> getLink() {
+    public List<Link> getLinks() {
         return link;
     }
 
