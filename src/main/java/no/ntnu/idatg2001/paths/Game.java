@@ -15,6 +15,8 @@ public class Game {
 
     private Passage passage;
 
+    private Link link;
+
     public Game(Player player, Story story, List<Goal> goals) {
 
     }
@@ -32,13 +34,18 @@ public class Game {
     }
 
     public Passage begin() {
-        return Story.getOpeningPassage();
+        return story.getOpeningPassage();
     }
 
     public Passage Go(Link link) {
-        if (passage.getLink().contains(link.getReference())) {
-            ;
+
+        List<Link> links = passage.getLinks();
+        for (Link linkToCheck : links) {
+            if (linkToCheck.equals(link)) {
+                return story.getPassage(link);
+            }
         }
+        return null;
     }
 }
 
