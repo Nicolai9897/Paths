@@ -16,14 +16,18 @@ public class InventoryGoal implements Goal{
      * InventoryGoal defines a list of items that the player is expected to possess.
      *
      * @param mandatoryItems the mandatory items defines the expected items for the player to possess
-     * @return the list of items that the player is expected to possess.
      */
-    public List<String> inventoryGoal(List<String> mandatoryItems){
-        return mandatoryItems;
+    public InventoryGoal(List<String> mandatoryItems){
+        this.mandatoryItems = mandatoryItems;
     }
 
     @Override
     public boolean isFullfilled(Player player) {
-        return false;
+        boolean achieved = false;
+        if(player.getInventory() == mandatoryItems){
+            achieved = true;
+        }
+
+        return achieved;
     }
 }

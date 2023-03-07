@@ -9,27 +9,21 @@ import java.util.List;
  * reached a certain threshold for gold quantity.
  */
 public class GoldGoal implements Goal{
-
-
     private int minimumGold;
 
     /**
      * Sets the threshold for minimum gold that the player is supposed to have
      * and checks if the player has achieved this goal.
-     *
      * @param minimumGold the minimum gold the player is supposed to have
-     * @return the int the minimum gold the player is supposed to have
      */
-    public int goldGoal(int minimumGold){
-        minimumGold = 200;
-
-        return minimumGold;
+    public GoldGoal(int minimumGold){
+        this.minimumGold = minimumGold;
     }
 
     @Override
     public boolean isFullfilled(Player player) {
         boolean achieved = false;
-        if(player.getGold() > minimumGold){
+        if(player.getGold() >= minimumGold){
             achieved = true;
         }
 

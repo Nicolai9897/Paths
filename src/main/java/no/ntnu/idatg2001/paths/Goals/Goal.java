@@ -14,5 +14,5 @@ public interface Goal {
      * @return the boolean false/true based on whether the player has achieved
      * a goal or not.
      */
-    public boolean isFullfilled(Player player);
+    boolean isFullfilled(Player player);
 }

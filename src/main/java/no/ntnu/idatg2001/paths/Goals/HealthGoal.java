@@ -14,13 +14,18 @@ public class HealthGoal implements Goal {
      * HealthGoal sets the threshold for the wanted health..
      *
      * @param minimumHealth the minimum health that the player wants to have
-     * @return the int minimumHealth the minimum health that the player has
      */
-    public int healthGoal(int minimumHealth){
-        return minimumHealth;
+    public HealthGoal(int minimumHealth){
+        this.minimumHealth = minimumHealth;
     }
     @Override
     public boolean isFullfilled(Player player) {
-        return false;
+        boolean achieved = false;
+        if(player.getGold() >= minimumHealth){
+            achieved = true;
+        }
+
+        return achieved;
     }
+
 }
