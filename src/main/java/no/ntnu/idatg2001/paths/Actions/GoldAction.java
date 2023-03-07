@@ -11,18 +11,15 @@ public class GoldAction implements Action{
 
 
     /**
-     * Method that when called through .
-     *
+     * Constructor for GoldAction. Allows for manipulation of the player's gold.
      * @param gold the gold the player currently possesses
-     * @return the int gold representing the new quantity of gold the player
-     * possesses.
      */
-    public int goldAction(int gold){
-        return gold;
+    public GoldAction(int gold){
+        this.gold = gold;
     }
 
     @Override
     public void execute(Player player) {
-
+        player.addGold(gold);
     }
 }

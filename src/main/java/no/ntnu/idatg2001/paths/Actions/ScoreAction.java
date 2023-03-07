@@ -14,13 +14,12 @@ public class ScoreAction implements Action {
      * ScoreActions method manipulates the player's score.
      *
      * @param points the points the player currently has
-     * @return the int points the new amount of points that the player has
      */
-    public int scoreActions(int points){
-        return points;
+    public ScoreAction(int points){
+        this.points = points;
     }
     @Override
     public void execute(Player player) {
-
+        player.addScore(points);
     }
 }

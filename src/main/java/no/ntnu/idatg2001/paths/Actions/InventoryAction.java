@@ -14,15 +14,14 @@ public class InventoryAction implements Action{
      * InventoryAction manipulates the items in the players inventory.
      *
      * @param item the item that is to be added/deleted from the player's
-     *             inventory
-     * @return the string item the added item
+     * inventory
      */
-    public String inventoryAction(String item){
-        return item;
+    public InventoryAction(String item){
+        this.item = item;
     }
 
     @Override
     public void execute(Player player) {
-
+        player.addToInventory(item);
     }
 }

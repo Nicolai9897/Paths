@@ -14,7 +14,7 @@ public class Player {
     private int health;
     private int score;
     private int gold;
-    private ArrayList<String> inventory;
+    private List<String> inventory;
 
     /**
      * Constructor for the player class.
@@ -25,6 +25,7 @@ public class Player {
         this.health = health;
         this.score = score;
         this.gold = gold;
+        this.inventory = new ArrayList<>();
     }
 
     /**
@@ -32,7 +33,7 @@ public class Player {
      * @param health the health
      */
     public void addHealth(int health) {
-        this.health = health;
+        this.health += health;
     }
 
     /**
@@ -40,7 +41,7 @@ public class Player {
      * @param score the score
      */
     public void addScore(int score) {
-        this.score = score;
+        this.score +=  score;
     }
 
     /**
@@ -48,15 +49,15 @@ public class Player {
      * @param gold the gold
      */
     public void addGold(int gold) {
-        this.gold = gold;
+        this.gold += gold;
     }
 
     /**
      * method for adding items to the players inventory.
-     * @param inventory the inventory
+     * @param item the inventory
      */
-    public void addToInventory(ArrayList<String> inventory) {
-        this.inventory = inventory;
+    public void addToInventory(String item) {
+        inventory.add(item);
     }
 
     /**

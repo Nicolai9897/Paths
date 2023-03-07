@@ -1,6 +1,6 @@
 package no.ntnu.idatg2001.paths;
 
-import no.ntnu.idatg2001.paths.Goals.Goal;
+import no.ntnu.idatg2001.paths.Goals.*;
 import no.ntnu.idatg2001.paths.Player;
 import no.ntnu.idatg2001.paths.Passage;
 import no.ntnu.idatg2001.paths.Story;
@@ -11,14 +11,16 @@ import java.util.List;
 public class Game {
     private Player player;
     private Story story;
-    private ArrayList<Goal> goals;
+    private List<Goal> goals;
 
     private Passage passage;
 
     private Link link;
 
     public Game(Player player, Story story, List<Goal> goals) {
-
+        this.player = player;
+        this.story = story;
+        this.goals = goals;
     }
 
     public Player getPlayer() {

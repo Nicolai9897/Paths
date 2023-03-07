@@ -14,15 +14,13 @@ public class HealthAction implements Action{
      * HealthAction manipulates the player's health.
      *
      * @param health the health that the player currently has left.
-     * @return the int health that represents the new amount of health the
-     * player has
      */
-    public int healthAction(int health){
-        return health;
+    public HealthAction(int health){
+        this.health = health;
     }
 
     @Override
     public void execute(Player player) {
-
+        player.addHealth(health);
     }
 }
