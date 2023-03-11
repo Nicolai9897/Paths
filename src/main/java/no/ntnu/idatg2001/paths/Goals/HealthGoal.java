@@ -4,13 +4,14 @@ import no.ntnu.idatg2001.paths.Player;
 
 public class HealthGoal implements Goal {
 
-    private int minimumHealth;
+  private int minimumHealth;
 
-    public int healthGoal(int minimumHealth){
-        return minimumHealth;
-    }
-    @Override
-    public boolean isFullfilled(Player player) {
-        return false;
-    }
+  public int healthGoal(int minimumHealth) {
+    return minimumHealth;
+  }
+
+  @Override
+  public boolean isFullfilled(Player player) {
+    return false;
+  }
 }

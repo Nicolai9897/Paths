@@ -4,16 +4,16 @@ import no.ntnu.idatg2001.paths.Player;
 
 import java.util.List;
 
-public class GoldGoal implements Goal{
+public class GoldGoal implements Goal {
 
-    private int minimumGold;
+  private int minimumGold;
 
-    public int goldGoal(int minimumGold){
-        return minimumGold;
-    }
+  public int goldGoal(int minimumGold) {
+    return minimumGold;
+  }
 
-    @Override
-    public boolean isFullfilled(Player player) {
-        return false;
-    }
+  @Override
+  public boolean isFullfilled(Player player) {
+    return false;
+  }
 }
