@@ -2,6 +2,7 @@ package no.ntnu.idatg2001.paths.Goals;
 
 import no.ntnu.idatg2001.paths.Player;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,8 +25,15 @@ public class InventoryGoal implements Goal{
     @Override
     public boolean isFullfilled(Player player) {
         boolean achieved = false;
-        if(player.getInventory() == mandatoryItems){
-            achieved = true;
+        mandatoryItems = new ArrayList<>();
+        List<String> playerInventory = player.getInventory();
+        List<String> missingItems = new ArrayList<>();
+
+        for(String mandatoryItem : mandatoryItems){
+            if(!playerInventory.contains(mandatoryItem)){
+                missingItems.add(mandatoryItem);
+                achieved = false;
+            }else achieved = true;
         }
 
         return achieved;
