@@ -8,24 +8,25 @@ import no.ntnu.idatg2001.paths.Player;
  */
 public class HealthGoal implements Goal {
 
-    private int minimumHealth;
+  private int minimumHealth;
 
-    /**
-     * HealthGoal sets the threshold for the wanted health..
-     *
-     * @param minimumHealth the minimum health that the player wants to have
-     */
-    public HealthGoal(int minimumHealth){
-        this.minimumHealth = minimumHealth;
-    }
-    @Override
-    public boolean isFullfilled(Player player) {
-        boolean achieved = false;
-        if(player.getGold() >= minimumHealth){
-            achieved = true;
-        }
+  /**
+   * HealthGoal sets the threshold for the wanted health..
+   *
+   * @param minimumHealth the minimum health that the player wants to have
+   */
+  public HealthGoal(int minimumHealth) {
+    this.minimumHealth = minimumHealth;
+  }
 
-        return achieved;
+  @Override
+  public boolean isFullfilled(Player player) {
+    boolean achieved = false;
+    if (player.getGold() >= minimumHealth) {
+      achieved = true;
     }
+
+    return achieved;
+  }
 
 }

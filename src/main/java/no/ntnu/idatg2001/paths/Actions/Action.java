@@ -8,12 +8,12 @@ import no.ntnu.idatg2001.paths.Player;
  */
 public interface Action {
 
-    /**
-     * Execute the wanted action on the player to alter their state.
-     *
-     * @param player the player
-     */
-    public void execute(Player player);
+  /**
+   * Execute the wanted action on the player to alter their state.
+   *
+   * @param player the player
+   */
+  public void execute(Player player);
 
 
 }
