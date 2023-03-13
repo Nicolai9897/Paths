@@ -6,15 +6,15 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PassageTest {
-    Passage passage;
+  Passage passage;
 
-    @BeforeEach
-    public void createPassage(){
-        passage = new Passage("cool passage", "this is a cool passage");
-    }
+  @BeforeEach
+  public void createPassage() {
+    passage = new Passage("cool passage", "this is a cool passage");
+  }
 
-    @Test
-    void PassageTest(){
-        assertEquals("cool passage", passage.getTitle());
-    }
+  @Test
+  void PassageTest() {
+    assertEquals("cool passage", passage.getTitle());
+  }
 }
