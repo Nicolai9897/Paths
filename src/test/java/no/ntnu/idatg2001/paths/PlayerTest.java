@@ -24,7 +24,6 @@ public  class PlayerTest {
     assertEquals(20, player.getScore());
     //test get gold
     assertEquals(50, player.getGold());
-
   }
 
   @Test
