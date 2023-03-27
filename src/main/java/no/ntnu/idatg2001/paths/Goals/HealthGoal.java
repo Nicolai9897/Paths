@@ -1,5 +1,6 @@
 package no.ntnu.idatg2001.paths.Goals;
 
+import java.util.stream.Stream;
 import no.ntnu.idatg2001.paths.Player;
 
 /**
@@ -19,14 +20,14 @@ public class HealthGoal implements Goal {
     this.minimumHealth = minimumHealth;
   }
 
+
+  /**
+  * isFullfilled method checks if the player has achieved a given health goal.
+  * @param player the player
+  * @return true if the player has achieved the goal, false if not.
+  */
   @Override
   public boolean isFullfilled(Player player) {
-    boolean achieved = false;
-    if (player.getGold() >= minimumHealth) {
-      achieved = true;
-    }
-
-    return achieved;
+  return Stream.of(player).map(Player::getHealth).anyMatch(health -> health <= minimumHealth);
   }
-
 }

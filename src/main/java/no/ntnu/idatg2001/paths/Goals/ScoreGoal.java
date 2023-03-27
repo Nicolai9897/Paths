@@ -1,5 +1,6 @@
 package no.ntnu.idatg2001.paths.Goals;
 
+import java.util.stream.Stream;
 import no.ntnu.idatg2001.paths.Player;
 
 /**
@@ -19,13 +20,14 @@ public class ScoreGoal implements Goal {
     this.minimumPoints = minimumPoints;
   }
 
-  @Override
-  public boolean isFullfilled(Player player) {
-    boolean achieved = false;
-    if (player.getGold() >= minimumPoints) {
-      achieved = true;
+    /**
+     * isFullfilled method checks if the player has achieved a given score goal.
+     *
+     * @param player the player
+     * @return true if the player has achieved the goal, false if not.
+     */
+    @Override
+    public boolean isFullfilled(Player player) {
+    return Stream.of(player).map(Player::getScore).anyMatch(score -> score >= minimumPoints);
     }
-
-    return achieved;
-  }
 }
