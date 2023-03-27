@@ -1,5 +1,6 @@
 package no.ntnu.idatg2001.paths.Goals;
 
+import java.util.stream.Stream;
 import no.ntnu.idatg2001.paths.Game;
 import no.ntnu.idatg2001.paths.Player;
 import java.util.List;
@@ -21,13 +22,14 @@ public class GoldGoal implements Goal {
     this.minimumGold = minimumGold;
   }
 
+
+  /**
+   * isFullfilled method checks if the player has achieved a given gold goal.
+   * @param player the player
+   * @return true if the player has achieved the goal, false if not.
+   */
   @Override
   public boolean isFullfilled(Player player) {
-    boolean achieved = false;
-    if (player.getGold() >= minimumGold) {
-      achieved = true;
-    }
-
-    return achieved;
+    return Stream.of(player).map(Player::getGold).anyMatch(gold -> gold >= minimumGold);
   }
 }
