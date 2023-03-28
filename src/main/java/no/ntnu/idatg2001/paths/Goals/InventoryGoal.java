@@ -1,5 +1,7 @@
 package no.ntnu.idatg2001.paths.Goals;
 
+import java.util.HashSet;
+import java.util.stream.Stream;
 import no.ntnu.idatg2001.paths.Player;
 
 import java.util.ArrayList;
@@ -22,22 +24,18 @@ public class InventoryGoal implements Goal {
     this.mandatoryItems = mandatoryItems;
   }
 
+
+  /**
+   * isFullfilled method checks if the player has gotten hold of one of the items that constitute
+   * the inventory goal
+   * @param player the player
+   * @return true if the player has gotten hold of a winning item, false if not.
+   */
   @Override
   public boolean isFullfilled(Player player) {
-    boolean achieved = false;
-    mandatoryItems = new ArrayList<>();
-    List<String> playerInventory = player.getInventory();
-    List<String> missingItems = new ArrayList<>();
-
-    for (String mandatoryItem : mandatoryItems) {
-        if (!playerInventory.contains(mandatoryItem)) {
-            missingItems.add(mandatoryItem);
-            achieved = false;
-        } else {
-            achieved = true;
-        }
-    }
-
-    return achieved;
+    return Stream.of(player)
+        .map(Player::getInventory)
+        .anyMatch(inventory -> new HashSet<>(inventory)
+            .stream() .anyMatch(mandatoryItems::contains));
   }
 }

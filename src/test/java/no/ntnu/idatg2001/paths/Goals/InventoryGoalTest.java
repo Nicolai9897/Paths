@@ -1,33 +1,37 @@
 package no.ntnu.idatg2001.paths.Goals;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.List;
+import no.ntnu.idatg2001.paths.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class InventoryGoalTest {
   private List<String> mandatoryItems;
   private InventoryGoal inventoryGoal;
-  private List<String> playerInventory;
 
+  Player player;
+
+  /**
+   * Create a new inventory goal, and a new player.
+   */
   @BeforeEach
-  void createInventories() {
+  public void createInventoryGoal() {
+    mandatoryItems = List.of("sword", "shield", "armor");
     inventoryGoal = new InventoryGoal(mandatoryItems);
-    mandatoryItems = new ArrayList<>();
-    playerInventory = new ArrayList<>();
-    mandatoryItems.add(0, "Elder wand");
-    mandatoryItems.add(1, "Twisted Bow");
-    mandatoryItems.add(2, "Excalibur");
-    mandatoryItems.add(3, "Merlin's beard");
-    mandatoryItems.add(4, "Ancestral hat");
-    mandatoryItems.add(5, "Primordial boots");
+    player = new Player("Markus", 100, 20, 50);
+  }
 
-    playerInventory.add(3, "Elder wand");
-    playerInventory.add(5, "Twisted Bow");
-    playerInventory.add(2, "Excalibur");
-    playerInventory.add(0, "Merlin's beard");
-    playerInventory.add(4, "Mystic hat");
-    playerInventory.add(1, "Dragon boots");
+  /**
+   * Test if the inventory goal is fullfilled.
+   */
+  @Test
+  void testIsFullfilled() {
+    assertEquals(false, inventoryGoal.isFullfilled(player));
+    player.addToInventory("sword");
+    assertEquals(true, inventoryGoal.isFullfilled(player));
+    player.addToInventory("shield");
+    assertEquals(true, inventoryGoal.isFullfilled(player));
   }
 }
