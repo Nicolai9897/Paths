@@ -30,6 +30,8 @@ public class GoldGoal implements Goal {
    */
   @Override
   public boolean isFullfilled(Player player) {
-    return Stream.of(player).map(Player::getGold).anyMatch(gold -> gold >= minimumGold);
+    return Stream.of(player)
+        .map(Player::getGold)
+        .anyMatch(gold -> gold >= minimumGold);
   }
 }

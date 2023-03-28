@@ -28,6 +28,8 @@ public class HealthGoal implements Goal {
   */
   @Override
   public boolean isFullfilled(Player player) {
-  return Stream.of(player).map(Player::getHealth).anyMatch(health -> health <= minimumHealth);
+  return Stream.of(player)
+      .map(Player::getHealth)
+      .anyMatch(health -> health <= minimumHealth);
   }
 }

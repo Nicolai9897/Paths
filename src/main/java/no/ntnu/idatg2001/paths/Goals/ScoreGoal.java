@@ -28,6 +28,8 @@ public class ScoreGoal implements Goal {
      */
     @Override
     public boolean isFullfilled(Player player) {
-    return Stream.of(player).map(Player::getScore).anyMatch(score -> score >= minimumPoints);
+    return Stream.of(player)
+        .map(Player::getScore)
+        .anyMatch(score -> score >= minimumPoints);
     }
 }
