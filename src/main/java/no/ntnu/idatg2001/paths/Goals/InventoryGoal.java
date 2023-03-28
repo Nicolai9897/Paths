@@ -21,9 +21,13 @@ public class InventoryGoal implements Goal {
    * @param mandatoryItems the mandatory items defines the expected items for the player to possess
    */
   public InventoryGoal(List<String> mandatoryItems) {
-    this.mandatoryItems = mandatoryItems;
+    this.mandatoryItems = new ArrayList<>(mandatoryItems);
+    mandatoryItems.add("Twisted Bow");
+    mandatoryItems.add("Excalibur");
+    mandatoryItems.add("Merlin's beard");
+    mandatoryItems.add("Ancestral hat");
+    mandatoryItems.add("Primordial boots");
   }
-
 
   /**
    * isFullfilled method checks if the player has gotten hold of one of the items that constitute

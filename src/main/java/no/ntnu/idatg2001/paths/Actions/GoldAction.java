@@ -16,7 +16,7 @@ public class GoldAction implements Action {
    * @param gold the gold the player currently possesses
    */
   public GoldAction(int gold) {
-    this.gold = gold;
+    this.gold += gold;
   }
 
   @Override
