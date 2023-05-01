@@ -31,14 +31,27 @@ public class Game {
     return story;
   }
 
+  /**
+   *
+   * @return
+   */
   public List<Goal> getGoals() {
     return goals;
   }
 
+  /**
+   * begin method returns the opening passage of the story.
+   * @return passage
+   */
   public Passage begin() {
     return story.getOpeningPassage();
   }
 
+  /**
+   * Go method checks if the link is valid and returns the passage the link leads to.
+   * @param link
+   * @return passage
+   */
   public Passage Go(Link link) {
 
     List<Link> links = passage.getLinks();

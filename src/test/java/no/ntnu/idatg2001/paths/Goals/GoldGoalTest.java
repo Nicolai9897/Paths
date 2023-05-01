@@ -14,7 +14,7 @@ public class GoldGoalTest {
 
     @BeforeEach
     public void createGoldGoal(){
-        goldGoal = new GoldGoal(100);
+        goldGoal = new GoldGoal();
         player = new Player("Markus", 100, 20, 50);
     }
 

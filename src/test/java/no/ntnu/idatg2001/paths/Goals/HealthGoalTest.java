@@ -15,7 +15,6 @@ public class HealthGoalTest {
 
         @BeforeEach
         public void createHealthGoal(){
-            healthGoal = new HealthGoal(0);
             player = new Player("Markus", 100, 20, 50);
         }
 
