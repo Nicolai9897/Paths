@@ -53,10 +53,9 @@ public class Story {
    * Add passage passage.
    *
    * @param passage the passage
-   * @return the passage
-   */
-  public Passage addPassage(Passage passage) {
-    return passage;
+Up   */
+  public void addPassage(Passage passage) {
+    passages.put(new Link(passage.getTitle(), passage.getContent()), passage);
   }
 
   /**
