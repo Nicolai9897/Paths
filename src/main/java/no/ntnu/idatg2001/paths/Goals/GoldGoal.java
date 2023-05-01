@@ -1,16 +1,14 @@
 package no.ntnu.idatg2001.paths.Goals;
 
 import java.util.stream.Stream;
-import no.ntnu.idatg2001.paths.Game;
 import no.ntnu.idatg2001.paths.Player;
-import java.util.List;
 
 /**
  * The GoldGoal class implements the Goal interface. Checks if the player has
  * reached a certain threshold for gold quantity.
  */
 public class GoldGoal implements Goal {
-  private int minimumGold;
+  private int minimumGold = 100;
 
   /**
    * Sets the threshold for minimum gold that the player is supposed to have
@@ -18,8 +16,8 @@ public class GoldGoal implements Goal {
    *
    * @param minimumGold the minimum gold the player is supposed to have
    */
-  public GoldGoal(int minimumGold) {
-    this.minimumGold = minimumGold;
+  public int GoldGoal() {
+    return minimumGold;
   }
 
 
