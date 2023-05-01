@@ -1,6 +1,5 @@
 package no.ntnu.idatg2001.paths;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -67,7 +66,7 @@ public class Story {
    * @return the passage
    */
   public Passage getPassage(Link link) {
-    return opening;
+    return passages.get(link);
   }
 
   /**
@@ -87,27 +86,24 @@ public class Story {
    */
   public void removePassage(Link link) {
     if (passages.containsKey(link)) {
-      for (Passage passage : passages.values()) {
-        if (passage.getLinks().contains(link)) {
-          throw new IllegalArgumentException("Cannot remove passage with links");
-        }
+      boolean canRemove = passages.values().stream()
+          .noneMatch(passage -> passage.getLinks().contains(link));
+      if (canRemove) {
+        passages.remove(link);
+      } else {
+        throw new IllegalArgumentException("Cannot remove passage with links");
       }
-      passages.remove(link);
     }
   }
 
   /**
-   * returns a list over links that link to non-existing passages.
+   * Gets broken links.
    *
-   * @return List<Link> brokenLinks
+   * @return the list of broken links
    */
   public List<Link> getBrokenLinks() {
-    List<Link> brokenLinks = new ArrayList<>();
-    for (Link link : passages.keySet()) {
-      if (!passages.containsKey(link)) {
-        brokenLinks.add(link);
-      }
-    }
-    return brokenLinks;
+    return passages.keySet().stream()
+        .filter(link -> !passages.containsKey(link))
+        .toList();
   }
 }
