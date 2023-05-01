@@ -9,27 +9,28 @@ import no.ntnu.idatg2001.paths.Player;
  */
 public class HealthGoal implements Goal {
 
-  private int minimumHealth;
+  private final int MINIMUM_HEALTH = 0;
 
   /**
    * HealthGoal sets the threshold for the wanted health..
    *
    * @param minimumHealth the minimum health that the player wants to have
    */
-  public HealthGoal(int minimumHealth) {
-    this.minimumHealth = minimumHealth;
+  public int HealthGoal(int minimumHealth) {
+    return minimumHealth;
   }
 
 
   /**
-  * isFullfilled method checks if the player has achieved a given health goal.
-  * @param player the player
-  * @return true if the player has achieved the goal, false if not.
-  */
+   * isFullfilled method checks if the player has achieved a given health goal.
+   *
+   * @param player the player
+   * @return true if the player has achieved the goal, false if not.
+   */
   @Override
   public boolean isFullfilled(Player player) {
-  return Stream.of(player)
-      .map(Player::getHealth)
-      .anyMatch(health -> health <= minimumHealth);
+    return Stream.of(player)
+        .map(Player::getHealth)
+        .anyMatch(health -> health <= MINIMUM_HEALTH);
   }
 }
