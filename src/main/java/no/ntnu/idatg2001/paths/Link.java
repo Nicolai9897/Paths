@@ -74,6 +74,12 @@ public class Link {
         '}';
   }
 
+  /**
+   * Equals method for the Link class.
+   *
+   * @param o the object
+   * @return true if the objects are equal, false if not
+   */
   @Override
   public boolean equals(Object o) {
       if (this == o) {
@@ -86,6 +92,11 @@ public class Link {
     return reference.equals(link.reference);
   }
 
+  /**
+   * Hashcode method for the Link class.
+   *
+   * @return the hashcode
+   */
   @Override
   public int hashCode() {
     return Objects.hash(reference);
