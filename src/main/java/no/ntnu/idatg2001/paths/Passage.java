@@ -13,7 +13,7 @@ import java.util.Objects;
 public class Passage {
   private String title;
   private String content;
-  private List<Link> link;
+  private List<Link> linkList;
 
   /**
    * Instantiates a new Passage.
@@ -48,11 +48,10 @@ public class Passage {
   /**
    * Add link boolean.
    *
-   * @param link the link
-   * @return the boolean
+   * @param newLink the link to add
    */
-  public boolean addLink(Link link) {
-    return true;
+  public void addLink(Link newLink) {
+    linkList.add(newLink);
   }
 
   /**
@@ -61,7 +60,7 @@ public class Passage {
    * @return the link
    */
   public List<Link> getLinks() {
-    return link;
+    return linkList;
   }
 
   /**
@@ -70,7 +69,7 @@ public class Passage {
    * @return the boolean
    */
   public boolean hasLink() {
-    return true;
+    return !linkList.isEmpty();
   }
 
   @Override
@@ -78,7 +77,7 @@ public class Passage {
     return "Passage{" +
         "title='" + title + '\'' +
         ", content='" + content + '\'' +
-        ", link=" + link +
+        ", link=" + linkList +
         '}';
   }
 
@@ -92,11 +91,11 @@ public class Passage {
       }
     Passage passage = (Passage) o;
     return title.equals(passage.title) && content.equals(passage.content) &&
-        link.equals(passage.link);
+        linkList.equals(passage.linkList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, content, link);
+    return Objects.hash(title, content, linkList);
   }
 }
