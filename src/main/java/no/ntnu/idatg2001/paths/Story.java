@@ -56,6 +56,7 @@ public class Story {
 Up   */
   public void addPassage(Passage passage) {
     passages.put(new Link(passage.getTitle(), passage.getContent()), passage);
+    passageCollection.add(passage);
   }
 
   /**
