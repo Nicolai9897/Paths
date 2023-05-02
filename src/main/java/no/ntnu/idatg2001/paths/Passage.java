@@ -18,8 +18,8 @@ public class Passage {
   /**
    * Instantiates a new Passage.
    *
-   * @param title   the title
-   * @param content the content
+   * @param title   an explanation and an identification for the passage
+   * @param content the content to show user. typically, a story, or some dialog
    */
   public Passage(String title, String content) {
     this.title = title;

@@ -20,8 +20,8 @@ public class Link {
   /**
    * Instantiates a new Link to go from one passage to another.
    *
-   * @param text      the text
-   * @param reference the reference
+   * @param text      Descriptive text indicating an action or a choice. the visible part for the player
+   * @param reference the reference to the passage to go to
    */
   public Link(String text, String reference) {
     this.text = text;
