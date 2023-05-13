@@ -7,8 +7,6 @@ import no.ntnu.idatg2001.paths.Story;
 import java.io.IOException;
 
 public class FileHandlerTest {
-  private Story story;
-
   public static void main(String[] args) {
     String filename = "C:\\Users\\nicol\\OneDrive\\NTNU_BIDATA\\Semester_4\\IDATG2001\\paths\\src\\test\\resources\\FileHandlerTestDocument.txt"; // Angi banen til den faktiske filen her
 
@@ -22,13 +20,14 @@ public class FileHandlerTest {
         System.out.println("\nPassage title: " + passage.getTitle());
         System.out.println("Passage content: " + passage.getContent());
 
-        System.out.println("Links in passage: + " + passage.getLinks().size() + "\n");
+        System.out.println("Links in passage: " + passage.getLinks().size() + "\n");
         // Skriv ut tittel og målpassasje for hver link i passasjen
         for (Link link : passage.getLinks()) {
           System.out.println("Link title: " + link.getReference());
           System.out.println("Link target passage: " + story.getPassage(link));
        // }
       }
+        System.out.println("--------------------");
       }
       //System.out.println("all the passages: " + story.getPassages());
     } catch (IOException e) {
