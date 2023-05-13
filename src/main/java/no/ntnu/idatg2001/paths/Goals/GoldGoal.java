@@ -13,8 +13,6 @@ public class GoldGoal implements Goal {
   /**
    * Sets the threshold for minimum gold that the player is supposed to have
    * and checks if the player has achieved this goal.
-   *
-   * @param minimumGold the minimum gold the player is supposed to have
    */
   public int GoldGoal() {
     return minimumGold;
