@@ -2,6 +2,7 @@ package no.ntnu.idatg2001.paths;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -28,6 +29,8 @@ public class Story {
   public Story(String title, Passage openingPassage) {
     this.title = title;
     this.opening = openingPassage;
+    this.passages = new HashMap<>();
+    //addPassage(openingPassage);
   }
 
   /**
@@ -54,10 +57,16 @@ public class Story {
    * @param passage the passage
    */
   public void addPassage(Passage passage) {
-    Link link = new Link(passage.getTitle(), passage.getContent()); //this part makes wrong links. it makes a link out of passage title and content.
+   for (Link link : passage.getLinks()) {
+        passages.put(link, passage);
+      }
+    }
+
+
+    /*Link link = new Link(passage.getTitle(), passage.getContent()); //this part makes wrong links. it makes a link out of passage title and content.
     passages.put(link, passage);
-    passage.addLink(link);
-  }
+    passage.addLink(link);*/
+
 
   /**
    * Get passage passage.

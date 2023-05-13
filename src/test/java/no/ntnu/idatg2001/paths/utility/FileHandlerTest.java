@@ -6,7 +6,7 @@ import no.ntnu.idatg2001.paths.Story;
 
 import java.io.IOException;
 
-public class FileHandlerTest {
+public class FileHandlerTest { //TODO: find why another room gets printed twice, but opening passage is left untouched
   public static void main(String[] args) {
     String filename = "C:\\Users\\nicol\\OneDrive\\NTNU_BIDATA\\Semester_4\\IDATG2001\\paths\\src\\test\\resources\\FileHandlerTestDocument.txt"; // Angi banen til den faktiske filen her
 
@@ -24,7 +24,7 @@ public class FileHandlerTest {
         // Skriv ut tittel og målpassasje for hver link i passasjen
         for (Link link : passage.getLinks()) {
           System.out.println("Link title: " + link.getReference());
-          System.out.println("Link target passage: " + story.getPassage(link));
+          System.out.println("Link target passage: " + link.getText());
        // }
       }
         System.out.println("--------------------");
