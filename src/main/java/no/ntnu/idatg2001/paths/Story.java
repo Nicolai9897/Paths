@@ -54,7 +54,9 @@ public class Story {
    * @param passage the passage
    */
   public void addPassage(Passage passage) {
-    passages.put(new Link(passage.getTitle(), passage.getContent()), passage);
+    Link link = new Link(passage.getTitle(), passage.getContent()); //this part makes wrong links. it makes a link out of passage title and content.
+    passages.put(link, passage);
+    passage.addLink(link);
   }
 
   /**
@@ -66,6 +68,14 @@ public class Story {
   public Passage getPassage(Link link) {
     return passages.get(link);
   }
+/*
+    for (Passage passage : passages.values()) {
+      if (passage.getLinks().contains(link)) {
+        return passage;
+      }
+    }
+    return null;
+  }*/
 
   /**
    * Get passages collection.

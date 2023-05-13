@@ -1,4 +1,5 @@
-Apackage no.ntnu.idatg2001.paths.ui;
+package no.ntnu.idatg2001.paths.ui;
+
 
 import java.awt.Button;
 import java.awt.Frame;
