@@ -1,5 +1,6 @@
 package no.ntnu.idatg2001.paths;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,7 +14,7 @@ import java.util.Objects;
 public class Passage {
   private String title;
   private String content;
-  private List<Link> linkList;
+  private ArrayList<Link> linkList;
 
   /**
    * Instantiates a new Passage.
@@ -24,7 +25,7 @@ public class Passage {
   public Passage(String title, String content) {
     this.title = title;
     this.content = content;
-
+    this.linkList = new ArrayList<>();
   }
 
   /**
@@ -99,3 +100,4 @@ public class Passage {
     return Objects.hash(title, content, linkList);
   }
 }
+
