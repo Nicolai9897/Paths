@@ -103,9 +103,5 @@ public class Story {
     return passages.keySet().stream()
         .filter(link -> !passages.containsKey(link))
         .toList();
-
-    Collection<Map<Link, Passage>> passages1;
-    passages1.add(passages);
-    passages1.add(passages);
   }
 }
