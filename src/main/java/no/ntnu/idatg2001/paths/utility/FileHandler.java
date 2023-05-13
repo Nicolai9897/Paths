@@ -35,7 +35,7 @@ public class FileHandler {
       // Read the file line by line
        String line;
       while ((line = reader.readLine()) != null) {
-        line.trim();
+        line = line.trim();
         if (line.isEmpty()) {
           continue;
         }
@@ -48,6 +48,7 @@ public class FileHandler {
 
           // Read the passage and its links
           while ((line = reader.readLine()) != null && !line.isEmpty()) {
+            line = line.trim();
             if (line.startsWith("[")) { // If the line is a link, add it to the list of links
               // The link title is the text between the brackets
               String linkTitle = line.substring(1, line.indexOf("]"));
@@ -62,10 +63,17 @@ public class FileHandler {
 
           // If the story already exists, add the passage to it, before finding the next passage
           if (story != null) {
-            story.addPassage(new Passage(passageTitle, contentBuilder.toString()));
-          } else { // If the story does not exist, make the story
-            story = new Story(title, new Passage(passageTitle, contentBuilder.toString()));
-
+            Passage passage = new Passage(passageTitle, contentBuilder.toString());
+            for (Link link : links) {
+              passage.addLink(link);
+            }
+            story.addPassage(passage);
+          } else { // If the story does not exist, create the story and opening passage
+            Passage openingPassage = new Passage(passageTitle, contentBuilder.toString());
+            for (Link link : links) {
+              openingPassage.addLink(link);
+            }
+            story = new Story(title, openingPassage);
           }
         }
       }
