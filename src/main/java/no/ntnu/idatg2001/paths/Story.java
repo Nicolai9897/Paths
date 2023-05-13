@@ -1,5 +1,6 @@
 package no.ntnu.idatg2001.paths;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -32,6 +33,7 @@ public class Story {
     this.opening = openingPassage;
     this.passages = new HashMap<>();
     this.passageCollection = passages.values();
+    addPassage(openingPassage);
   }
 
   /**
@@ -72,6 +74,14 @@ Up   */
   public Passage getPassage(Link link) {
     return passages.get(link);
   }
+/*
+    for (Passage passage : passages.values()) {
+      if (passage.getLinks().contains(link)) {
+        return passage;
+      }
+    }
+    return null;
+  }*/
 
   /**
    * Get passages collection.
@@ -79,7 +89,7 @@ Up   */
    * @return the collection
    */
   public Collection<Passage> getPassages() {
-    return passageCollection;
+    return new ArrayList<>(passages.values());
   }
 
 
