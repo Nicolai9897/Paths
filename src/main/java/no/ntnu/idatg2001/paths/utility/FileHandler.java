@@ -3,8 +3,12 @@ package no.ntnu.idatg2001.paths.utility;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import no.ntnu.idatg2001.paths.Link;
 import no.ntnu.idatg2001.paths.Passage;
 import no.ntnu.idatg2001.paths.Story;
@@ -20,16 +24,17 @@ public class FileHandler {
    * @throws IOException if the file is not found
    */
   public static Story readStory(String filename) throws IOException {
+    Path path = Path.of(filename);
     Story story = null;
     String title = "";
-    List passages = new ArrayList();
 
-    try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+    try (BufferedReader reader = Files.newBufferedReader(path)) {
       title = reader.readLine().trim();
 
 
-      String line = reader.readLine();
-      while (line != null) {
+      // Read the file line by line
+       String line;
+      while ((line = reader.readLine()) != null) {
         line.trim();
         if (line.isEmpty()) {
           continue;
@@ -60,10 +65,12 @@ public class FileHandler {
             story.addPassage(new Passage(passageTitle, contentBuilder.toString()));
           } else { // If the story does not exist, make the story
             story = new Story(title, new Passage(passageTitle, contentBuilder.toString()));
+
           }
         }
-
       }
+    } catch (IOException e) {
+      System.out.println("Error reading file: " + e.getMessage());
     }
     return story;
   }
