@@ -1,6 +1,7 @@
 package no.ntnu.idatg2001.paths;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,7 +14,7 @@ import java.util.Map;
 public class Story {
 
   private String title;
-  private Map<Link, Passage> passages;
+  private HashMap<Link, Passage> passages;
   private Passage opening;
 
 
@@ -29,6 +30,8 @@ public class Story {
   public Story(String title, Passage openingPassage) {
     this.title = title;
     this.opening = openingPassage;
+    this.passages = new HashMap<>();
+    this.passageCollection = passages.values();
   }
 
   /**
@@ -55,7 +58,9 @@ public class Story {
    * @param passage the passage
 Up   */
   public void addPassage(Passage passage) {
-    passages.put(new Link(passage.getTitle(), passage.getContent()), passage);
+    Link link = new Link(passage.getTitle(), passage.getContent());
+    passages.put(link, passage);
+    passage.addLink(link);
   }
 
   /**
