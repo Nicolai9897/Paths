@@ -1,5 +1,6 @@
 package no.ntnu.idatg2001.paths.utility;
 
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -23,11 +24,10 @@ public class FileHandler {
    * @throws IOException if the file is not found
    */
   public static Story readStory(String filename) throws IOException {
-    Path path = Paths.get(filename);
     Story story = null;
     String title = "";
 
-    try (Scanner scanner = new Scanner(path)) {
+    try (Scanner scanner = new Scanner(Paths.get(filename))) {
       if (scanner.hasNextLine()) {
         title = scanner.nextLine().trim();
       }
@@ -80,8 +80,6 @@ public class FileHandler {
     }
     return story;
   }
-
-
 
 
   /**

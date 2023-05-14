@@ -18,22 +18,17 @@ public class Main {
     frame.add(panel);
 
     Button startButton = new Button("Start Game");
-    startButton.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        // Start game code here
-      }
+    startButton.addActionListener(e -> {
+      // Start game code here
     });
     panel.add(startButton);
 
     Button exitButton = new Button("Exit Game");
-    exitButton.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        System.exit(0);
-      }
-    });
+    exitButton.addActionListener(e -> System.exit(0));
     panel.add(exitButton);
 
     frame.addWindowListener(new WindowAdapter() {
+      @Override
       public void windowClosing(WindowEvent we) {
         System.exit(0);
       }
