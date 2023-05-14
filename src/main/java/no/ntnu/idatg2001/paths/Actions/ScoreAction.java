@@ -8,7 +8,7 @@ import no.ntnu.idatg2001.paths.Player;
  */
 public class ScoreAction implements Action {
 
-  private int points;
+  private final int points;
 
   /**
    * ScoreActions method manipulates the player's score.

@@ -8,7 +8,7 @@ import no.ntnu.idatg2001.paths.Player;
  */
 public class HealthAction implements Action {
 
-  private int health;
+  private final int health;
 
   /**
    * HealthAction manipulates the player's health.

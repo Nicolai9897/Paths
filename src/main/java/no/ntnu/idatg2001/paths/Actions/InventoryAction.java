@@ -8,7 +8,7 @@ import no.ntnu.idatg2001.paths.Player;
  */
 public class InventoryAction implements Action {
 
-  private String item;
+  private final String item;
 
   /**
    * InventoryAction manipulates the items in the players inventory.
