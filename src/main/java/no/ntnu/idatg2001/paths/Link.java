@@ -1,5 +1,6 @@
 package no.ntnu.idatg2001.paths;
 
+import java.util.ArrayList;
 import no.ntnu.idatg2001.paths.Actions.Action;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class Link {
 
   private String text;
   private String reference;
-  private List<Action> action;
+  private List<Action> actions;
 
   /**
    * Instantiates a new Link to go from one passage to another.
@@ -26,6 +27,7 @@ public class Link {
   public Link(String text, String reference) {
     this.text = text;
     this.reference = reference;
+    this.actions = new ArrayList<>();
   }
 
   /**
@@ -52,17 +54,17 @@ public class Link {
    *
    * @return the action
    */
-  public List<Action> getAction() {
-    return action;
+  public List<Action> getActions() {
+    return actions;
   }
 
   /**
    * Add an object to the players inventory.
    *
-   * @param action the action
+   * @param actionList the actions to add
    */
-  public void addAction(List<Action> action) {
-    this.action = action;
+  public void addAction(List<Action> actionList) {
+    this.actions.addAll(actionList);
   }
 
   @Override
@@ -70,7 +72,7 @@ public class Link {
     return "Link{" +
         "text='" + text + '\'' +
         ", reference='" + reference + '\'' +
-        ", action=" + action +
+        ", action=" + actions +
         '}';
   }
 
