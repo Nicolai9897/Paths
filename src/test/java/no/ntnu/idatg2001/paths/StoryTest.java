@@ -13,7 +13,6 @@ public class StoryTest {
   Story story;
   Passage testPassage1;
   Link testLink1;
-  Passage testPassagee2;
 
 
   @BeforeEach
@@ -85,8 +84,27 @@ public class StoryTest {
     assertTrue(story.getPassages().contains(testPassage2));
   }
 
+  @Test
+  void testGetBrokenLinksSize() {
 
+    assertEquals(1, story.getBrokenLinks().size());
 
+    Passage testPassage2 = new Passage("Forrest", "You are currently in a forrest");
+    story.addPassage(testPassage2);
+
+    assertEquals(0, story.getBrokenLinks().size());
+  }
+
+  @Test
+    void testGetBrokenLinksArray() {
+        Passage testPassage2 = new Passage("Forrest", "You are currently in a forrest");
+        story.addPassage(testPassage2);
+        Link testLink2 = new Link("go through forrest", "Other end of forrest");
+        testPassage2.addLink(testLink2);
+
+        assertEquals(1, story.getBrokenLinks().size());
+        assertTrue(story.getBrokenLinks().contains(testLink2));
+    }
 
 }
 

@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.stream.Collectors;
 
 
 /**
@@ -85,6 +86,7 @@ public class Story {
   public Collection<Passage> getPassages() {
     return new ArrayList<>(passages.values());
   }
+
   /**
    * Removes a given passage if there are no other passages linked to it.
    *
@@ -106,8 +108,10 @@ public class Story {
    * @return the list of broken links
    */
   public List<Link> getBrokenLinks() {
-    return passages.keySet().stream()
+    return passages.values().stream()
+        .flatMap(passage -> passage.getLinks().stream())
         .filter(link -> !passages.containsKey(link))
         .toList();
   }
+
 }
