@@ -1,14 +1,13 @@
 package no.ntnu.idatg2001.paths;
 
-import static java.time.chrono.JapaneseEra.values;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
-import org.jetbrains.annotations.NotNull;
+import java.util.concurrent.atomic.AtomicBoolean;
+
 
 /**
  * The type Story.
@@ -61,22 +60,7 @@ public class Story {
    */
   public void addPassage(Passage passage) {
     passages.put(new Link(passage.getTitle(), passage.getTitle()), passage);
-
-
-    /*if (passages.isEmpty()) {
-      passages.put(new Link(passage.getTitle(), passage.getTitle()), passage);
-    } else {
-      for (Link link : passage.getLinks()) {
-        passages.put(link, passage);
-      }
-    }*/
   }
-
-
-    /*Link link = new Link(passage.getTitle(), passage.getContent()); //this part makes wrong links. it makes a link out of passage title and content.
-    passages.put(link, passage);
-    passage.addLink(link);*/
-
 
   /**
    * Get passage passage.
@@ -93,17 +77,6 @@ public class Story {
     return null;
   }
 
-
-
-/*
-    for (Passage passage : passages.values()) {
-      if (passage.getLinks().contains(link)) {
-        return passage;
-      }
-    }
-    return null;
-  }*/
-
   /**
    * Get passages collection.
    *
@@ -112,23 +85,20 @@ public class Story {
   public Collection<Passage> getPassages() {
     return new ArrayList<>(passages.values());
   }
-
   /**
-   * Removes a given passages, if there are no other passages linked to it.
+   * Removes a given passage if there are no other passages linked to it.
    *
-   * @param link to the passage to remove
+   * @param link the link to the passage to remove
    */
-  public void removePassage(Link link) {
-    if (passages.containsKey(link)) {
-      boolean canRemove = passages.values().stream()
-          .noneMatch(passage -> passage.getLinks().contains(link));
-      if (canRemove) {
-        passages.remove(link);
-      } else {
-        throw new IllegalArgumentException("Cannot remove passage with links");
-      }
+  public void removePassage(Link link) throws IllegalArgumentException {
+    boolean hasLink = passages.values().stream()
+        .anyMatch(passage -> passage.getLinks().contains(link));
+    if (hasLink) {
+      throw new IllegalArgumentException("Cannot remove passage with links");
     }
+    passages.remove(link);
   }
+
 
   /**
    * Gets broken links.
