@@ -1,10 +1,14 @@
 package no.ntnu.idatg2001.paths;
 
+import static java.time.chrono.JapaneseEra.values;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * The type Story.
@@ -19,7 +23,6 @@ public class Story {
   private Passage opening;
 
 
-
   /**
    * Instantiates a new Story.
    *
@@ -30,7 +33,7 @@ public class Story {
     this.title = title;
     this.opening = openingPassage;
     this.passages = new HashMap<>();
-    //addPassage(openingPassage);
+    addPassage(openingPassage);
   }
 
   /**
@@ -57,10 +60,17 @@ public class Story {
    * @param passage the passage
    */
   public void addPassage(Passage passage) {
-   for (Link link : passage.getLinks()) {
+    passages.put(new Link(passage.getTitle(), passage.getTitle()), passage);
+
+
+    /*if (passages.isEmpty()) {
+      passages.put(new Link(passage.getTitle(), passage.getTitle()), passage);
+    } else {
+      for (Link link : passage.getLinks()) {
         passages.put(link, passage);
       }
-    }
+    }*/
+  }
 
 
     /*Link link = new Link(passage.getTitle(), passage.getContent()); //this part makes wrong links. it makes a link out of passage title and content.
@@ -75,8 +85,16 @@ public class Story {
    * @return the passage
    */
   public Passage getPassage(Link link) {
-    return passages.get(link);
+    for (Map.Entry<Link, Passage> passage : passages.entrySet()) {
+      if (passage.getKey().getReference().equalsIgnoreCase(link.getReference())) {
+        return passage.getValue();
+      }
+    }
+    return null;
   }
+
+
+
 /*
     for (Passage passage : passages.values()) {
       if (passage.getLinks().contains(link)) {
@@ -94,7 +112,6 @@ public class Story {
   public Collection<Passage> getPassages() {
     return new ArrayList<>(passages.values());
   }
-
 
   /**
    * Removes a given passages, if there are no other passages linked to it.
