@@ -1,5 +1,8 @@
 package no.ntnu.idatg2001.paths.utility;
 
+
+import static no.ntnu.idatg2001.paths.utility.ActionTypeEnums.GOLD;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -7,6 +10,11 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import no.ntnu.idatg2001.paths.Actions.Action;
+import no.ntnu.idatg2001.paths.Actions.GoldAction;
+import no.ntnu.idatg2001.paths.Actions.HealthAction;
+import no.ntnu.idatg2001.paths.Actions.InventoryAction;
+import no.ntnu.idatg2001.paths.Actions.ScoreAction;
 import no.ntnu.idatg2001.paths.base.Link;
 import no.ntnu.idatg2001.paths.base.Passage;
 import no.ntnu.idatg2001.paths.base.Story;
@@ -162,7 +170,20 @@ public class FileHandler {
       if (line.startsWith("[")) {
         Link link = readLink(line);
         links.add(link);
-      } else {
+      } else if (line.startsWith("{")) {
+        List<Action> actions = new ArrayList<>();
+        boolean nextLineIsAction = true;
+        while (nextLineIsAction) {
+          Action action = readAction(line);
+          actions.add(action);
+          if (!scanner.nextLine().trim().equals("}")) {
+            nextLineIsAction = false;
+          } else {
+            line = scanner.nextLine().trim();
+          }
+        }
+        links.get(links.size() - 1).addAction(actions);
+      }else {
         contentBuilder.append(line);
       }
     }
@@ -182,6 +203,20 @@ public class FileHandler {
     String linkTitle = line.substring(1, line.indexOf("]"));
     String linkPassage = line.substring(line.indexOf("(") + 1, line.indexOf(")"));
     return new Link(linkTitle, linkPassage);
+  }
+
+  private static Action readAction(String line) {
+    String actionType = line.substring(1, line.indexOf("}"));
+    String actionValue = line.substring(line.indexOf("(") + 1, line.indexOf(")"));
+    ActionTypeEnums actionTypeEnum = ActionTypeEnums.valueOf(actionType.toUpperCase());
+
+    return switch (actionTypeEnum) {
+      case GOLD -> new GoldAction(Integer.parseInt(actionValue));
+      case HEALTH -> new HealthAction(Integer.parseInt(actionValue));
+      case SCORE -> new ScoreAction(Integer.parseInt(actionValue));
+      case INVENTORY -> new InventoryAction(actionValue);
+      default -> null;
+    };
   }
 
 
