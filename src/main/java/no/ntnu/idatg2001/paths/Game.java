@@ -2,6 +2,9 @@ package no.ntnu.idatg2001.paths;
 
 import no.ntnu.idatg2001.paths.Goals.*;
 import java.util.List;
+import no.ntnu.idatg2001.paths.base.Link;
+import no.ntnu.idatg2001.paths.base.Passage;
+import no.ntnu.idatg2001.paths.base.Story;
 
 public class Game {
   private Player player;
