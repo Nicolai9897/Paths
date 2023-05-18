@@ -12,3 +12,17 @@ The door opens to another room. You see a desk with a large, dusty book.
 ::The book of spells
 You open the book and see a list of spells. You read one aloud.
 [Go back](Another room)
+[Go to next room](The next room)
+{HEALTH}(-10)
+{INVENTORY}(sword)
+
+::The next room
+You have entered the next room to great discomfort. You have lost 10 healthpoints, but you found a sword.
+[Go to the other next room](The other next room)
+{SCORE}(50)
+{gold}(30)
+[go back](The book of spells)
+
+::The other next room
+You have entered the other next room. you have gained 50 points and 30 gold
+[go back](The next room)

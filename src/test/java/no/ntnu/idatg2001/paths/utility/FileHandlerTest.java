@@ -1,6 +1,11 @@
 package no.ntnu.idatg2001.paths.utility;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import no.ntnu.idatg2001.paths.Actions.Action;
+import no.ntnu.idatg2001.paths.Actions.HealthAction;
+import no.ntnu.idatg2001.paths.Actions.InventoryAction;
 import no.ntnu.idatg2001.paths.base.Link;
 import no.ntnu.idatg2001.paths.base.Passage;
 import no.ntnu.idatg2001.paths.base.Story;
@@ -67,19 +72,28 @@ public class FileHandlerTest {
 
   @Test
   void testPassagesSize() {
-    assertEquals(3, story.getPassages().size());
+    assertEquals(5, story.getPassages().size());
   }
 
   @Test
-  void testPassage1() {
+  void testgetPassages() {
     Passage testPassage1 = new Passage("The book of spells",
         "You open the book and see a list of spells. You read one aloud.");
-    testPassage1.addLink(new Link("Go back", "Another room"));
+    Link testLink1 = new Link("Go back", "Another room");
+    Link testLink2 = new Link("Go to next room", "The next room");
+    List<Action> testActions = new ArrayList<>();
+    testActions.add(new HealthAction(-10));
+    testActions.add(new InventoryAction("sword"));
+
+    testLink2.addAction(testActions);
+
+    testPassage1.addLink(testLink1);
+    testPassage1.addLink(testLink2);
     assertTrue(story.getPassages().contains(testPassage1));
     }
 
   @Test
-  void  testPassage2() {
+  void  testGetPassages2() {
     Passage testPassage2 = new Passage("Another room",
         "The door opens to another room. You see a desk with a large, dusty book.");
     testPassage2.addLink(new Link("Open the book", "The book of spells"));
@@ -94,5 +108,8 @@ public class FileHandlerTest {
     testOpeningPassage.addLink(new Link("Try to open the door", "Another room"));
     assertEquals(story.getOpeningPassage(), testOpeningPassage);
   }
+
+
+
 }
 
