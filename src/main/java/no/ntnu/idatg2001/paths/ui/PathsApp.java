@@ -10,7 +10,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+// TODO: Refactor UI implementation for modularization and scalability.
 
+/**
+ * The PathsApp class creates the User interface of the application
+ */
 public class PathsApp extends Application {
 
     @Override
@@ -29,7 +33,7 @@ public class PathsApp extends Application {
         pane1.setCenter(scene1Node);
         Scene scene1 = new Scene(pane1, 600, 600);
 
-        primaryStage.setScene(scene1);
+
 
         // Configurations for second scene
         Label sceneTwoText = new Label("Second scene");
@@ -42,16 +46,19 @@ public class PathsApp extends Application {
         pane2.setCenter(scene2Node);
         Scene scene2 = new Scene(pane2, 300, 300);
 
-
         // Actions for the buttons
         continueButton.setOnAction(e -> primaryStage.setScene(scene2));
         backButton.setOnAction(e -> primaryStage.setScene(scene1));
 
-
+        primaryStage.setScene(scene1);
         primaryStage.show();
     }
 
-    public Node menuBar(){
+    /**
+     * menuBar method creates the menubar for the application window. Returns the menubar so this can be implemented easily in every scene.
+     * @return The menubar
+     */
+    private Node menuBar(){
         MenuBar menuBar = new MenuBar();
 
         Menu fileMenu = new Menu("File");
