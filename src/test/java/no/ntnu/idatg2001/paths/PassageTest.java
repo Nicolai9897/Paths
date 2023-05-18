@@ -82,7 +82,4 @@ public class PassageTest {
     assertNotEquals(passage.hashCode(), passage2.hashCode());
   }
 
-
-
-
 }

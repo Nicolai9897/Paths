@@ -14,8 +14,8 @@ import java.util.Objects;
  */
 public class Link {
 
-  private String text;
-  private String reference;
+  private final String text;
+  private final String reference;
   private List<Action> actions;
 
   /**
