@@ -1,6 +1,7 @@
-package no.ntnu.idatg2001.paths;
+package no.ntnu.idatg2001.paths.base;
 
-import java.util.ArrayList;
+import no.ntnu.idatg2001.paths.base.Link;
+import no.ntnu.idatg2001.paths.base.Passage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

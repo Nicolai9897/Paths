@@ -1,4 +1,4 @@
-package no.ntnu.idatg2001.paths;
+package no.ntnu.idatg2001.paths.base;
 
 
 import java.util.ArrayList;
