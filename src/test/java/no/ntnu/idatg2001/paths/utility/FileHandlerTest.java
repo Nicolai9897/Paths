@@ -1,9 +1,9 @@
 package no.ntnu.idatg2001.paths.utility;
 
 import java.io.File;
-import no.ntnu.idatg2001.paths.Link;
-import no.ntnu.idatg2001.paths.Passage;
-import no.ntnu.idatg2001.paths.Story;
+import no.ntnu.idatg2001.paths.base.Link;
+import no.ntnu.idatg2001.paths.base.Passage;
+import no.ntnu.idatg2001.paths.base.Story;
 
 import java.io.IOException;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,7 +18,7 @@ public class FileHandlerTest {
   Story story;
 
   /*public static void main(String[] args) {
-    String filename = "paths/src/test/resources/FileHandlerTestDocument.txt";
+    String filename = "paths/src/test/resources/FileHandlerTestDocument.paths";
 
 
     try {
@@ -51,10 +51,10 @@ public class FileHandlerTest {
 
   @BeforeEach
   public void createStory() {
-    File file = new File("src/test/resources/FileHandlerTestDocument.txt");
+    File file = new File("src/test/resources/FileHandlerTestDocument.paths");
     String filename = file.getAbsolutePath();
     try {
-      story = FileHandler.readStory(filename);
+      story = FileHandler.initializeStory(filename);
     } catch (IOException e) {
       System.out.println("An error occurred while reading the story: " + e.getMessage());
     }
