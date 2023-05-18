@@ -9,7 +9,7 @@ import no.ntnu.idatg2001.paths.Player;
  */
 public class ScoreGoal implements Goal {
 
-  private int minimumPoints;
+  private final int minimumPoints;
 
   /**
    * Score goal int.

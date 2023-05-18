@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class InventoryGoal implements Goal {
 
-  private List<String> mandatoryItems;
+  private final List<String> mandatoryItems;
 
   /**
    * InventoryGoal defines a list of items that the player is expected to possess.
@@ -22,11 +22,11 @@ public class InventoryGoal implements Goal {
    */
   public InventoryGoal(List<String> mandatoryItems) {
     this.mandatoryItems = new ArrayList<>(mandatoryItems);
-    mandatoryItems.add("Twisted Bow");
+    /*mandatoryItems.add("Twisted Bow");
     mandatoryItems.add("Excalibur");
     mandatoryItems.add("Merlin's beard");
     mandatoryItems.add("Ancestral hat");
-    mandatoryItems.add("Primordial boots");
+    mandatoryItems.add("Primordial boots");*/
   }
 
   /**

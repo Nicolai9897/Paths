@@ -9,15 +9,15 @@ import no.ntnu.idatg2001.paths.Player;
  */
 public class HealthGoal implements Goal {
 
-  private final int MINIMUM_HEALTH = 0;
+  private final int minimumHealth;
 
   /**
    * HealthGoal sets the threshold for the wanted health..
    *
    * @param minimumHealth the minimum health that the player wants to have
    */
-  public int HealthGoal(int minimumHealth) {
-    return minimumHealth;
+  public HealthGoal(int minimumHealth) {
+    this.minimumHealth = minimumHealth;
   }
 
 
@@ -31,6 +31,6 @@ public class HealthGoal implements Goal {
   public boolean isFullfilled(Player player) {
     return Stream.of(player)
         .map(Player::getHealth)
-        .anyMatch(health -> health <= MINIMUM_HEALTH);
+        .anyMatch(health -> health <= minimumHealth);
   }
 }

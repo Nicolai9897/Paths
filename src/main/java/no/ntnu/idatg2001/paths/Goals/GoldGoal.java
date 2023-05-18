@@ -8,14 +8,14 @@ import no.ntnu.idatg2001.paths.Player;
  * reached a certain threshold for gold quantity.
  */
 public class GoldGoal implements Goal {
-  private int minimumGold = 100;
+  private final int minimumGold;
 
   /**
    * Sets the threshold for minimum gold that the player is supposed to have
    * and checks if the player has achieved this goal.
    */
-  public int GoldGoal() {
-    return minimumGold;
+  public GoldGoal(int minimumGold) {
+    this.minimumGold = minimumGold;
   }
 
 
