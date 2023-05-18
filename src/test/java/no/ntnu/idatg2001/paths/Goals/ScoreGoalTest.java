@@ -1,6 +1,8 @@
 package no.ntnu.idatg2001.paths.Goals;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import no.ntnu.idatg2001.paths.Player;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,8 +21,8 @@ public class ScoreGoalTest {
 
         @Test
         void testIsFullfilled(){
-            assertEquals(false, scoreGoal.isFullfilled(player));
+          assertFalse(scoreGoal.isFullfilled(player));
             player.addScore(100);
-            assertEquals(true, scoreGoal.isFullfilled(player));
+          assertTrue(scoreGoal.isFullfilled(player));
         }
 }

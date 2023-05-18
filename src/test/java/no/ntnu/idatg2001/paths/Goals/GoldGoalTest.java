@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GoldGoalTest {
@@ -14,15 +15,15 @@ public class GoldGoalTest {
 
     @BeforeEach
     public void createGoldGoal(){
-        goldGoal = new GoldGoal();
-        player = new Player("Markus", 100, 20, 50);
+        goldGoal = new GoldGoal(1000);
+        player = new Player("Markus", 100, 20, 500);
     }
 
     @Test
     void testIsFullfilled(){
-        assertEquals(false, goldGoal.isFullfilled(player));
-        player.addGold(100);
-        assertEquals(true, goldGoal.isFullfilled(player));
+        assertFalse(goldGoal.isFullfilled(player));
+        player.addGold(600);
+        assertTrue(goldGoal.isFullfilled(player));
     }
 
 
