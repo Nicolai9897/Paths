@@ -1,11 +1,6 @@
 package no.ntnu.idatg2001.paths;
 
 import no.ntnu.idatg2001.paths.Goals.*;
-import no.ntnu.idatg2001.paths.Player;
-import no.ntnu.idatg2001.paths.Passage;
-import no.ntnu.idatg2001.paths.Story;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
@@ -13,9 +8,6 @@ public class Game {
   private Story story;
   private List<Goal> goals;
 
-  private Passage passage;
-
-  private Link link;
 
   public Game(Player player, Story story, List<Goal> goals) {
     this.player = player;
@@ -48,19 +40,11 @@ public class Game {
   }
 
   /**
-   * Go method checks if the link is valid and returns the passage the link leads to.
-   * @param link
-   * @return passage
+   * returns the passage that matches the applicable link sent to the method
    */
-  public Passage Go(Link link) {
-
-    List<Link> links = passage.getLinks();
-    for (Link linkToCheck : links) {
-      if (linkToCheck.equals(link)) {
-        return story.getPassage(link);
-      }
-    }
-    return null;
+  public Passage go(Link link) {
+    return story.getPassage(link);
   }
+
 }
 
