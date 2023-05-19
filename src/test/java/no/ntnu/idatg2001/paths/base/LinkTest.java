@@ -5,31 +5,54 @@ import java.util.List;
 import no.ntnu.idatg2001.paths.Actions.Action;
 import no.ntnu.idatg2001.paths.Actions.GoldAction;
 import no.ntnu.idatg2001.paths.Actions.HealthAction;
-import no.ntnu.idatg2001.paths.base.Link;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class LinkTest {
+/**
+ * Test class for Link instance
+ */
+class LinkTest {
 
   Link link;
 
+  /**
+   * Create a new link
+   */
   @BeforeEach
   public void createLink() {
     link = new Link("Go to forrest", "forrest");
   }
 
+  /**
+   * Test that the getText method returns the correct text
+   */
   @Test
-  void testLinkGetters() {
-    //test text getter
+  void testGetText() {
     assertEquals("Go to forrest", link.getText());
-    //test reference getters
-    assertEquals("forrest", link.getReference());
-    //test action getter
-    assertEquals(0, link.getActions().size());
-    }
+  }
 
+  /**
+   * Test that the getReference method returns the correct reference
+   */
+  @Test
+  void testGetReference() {
+    assertEquals("forrest", link.getReference());
+  }
+
+  /**
+   * Test that the getActions method returns the correct actions
+   */
+  @Test
+  void testGetActions() {
+    assertEquals(0, link.getActions().size());
+  }
+
+    /**
+     * Test that the addAction method adds the correct amount of actions
+     */
   @Test
   void testAddAction() {
     List<Action> actions = new ArrayList<>();
@@ -39,4 +62,20 @@ public class LinkTest {
     link.addAction(actions);
     assertEquals(2, link.getActions().size());
   }
+
+    /**
+     * Test that the addAction method adds the correct actions
+     */
+    @Test
+    void testAddActionCorrect() {
+        List<Action> actions = new ArrayList<>();
+        Action goldAction = new GoldAction(10);
+        Action healthAction = new HealthAction(-10);
+        actions.add(goldAction);
+        actions.add(healthAction);
+
+        link.addAction(actions);
+        assertTrue(link.getActions().contains(goldAction));
+        assertTrue(link.getActions().contains(healthAction));
+    }
 }

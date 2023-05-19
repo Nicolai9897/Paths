@@ -15,6 +15,9 @@ import no.ntnu.idatg2001.paths.base.Story;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Test class for the Game class
+ */
 public class GameTest {
 
   Game game;
@@ -26,6 +29,9 @@ public class GameTest {
   Link testLink2;
   List<Goal> goals;
 
+  /**
+   * Set up the game with a story, player and goals
+   */
   @BeforeEach
   void setUp() {
     // Create a new story with a passage and a link
@@ -54,24 +60,46 @@ public class GameTest {
     game = new Game(player, story, goals);
   }
 
+
+  /**
+   * Test that the player Game class returns the correct player
+   */
   @Test
-  void testGameInitialization() {
+  void testGetPlayer() {
     assertEquals(player, game.getPlayer());
+  }
+
+  /**
+   * Test that the story Game class returns the correct story
+   */
+  @Test
+  void testGetStory() {
     assertEquals(story, game.getStory());
+  }
+
+    /**
+     * Test that the goals Game class returns the correct goals
+     */
+  @Test
+  void testGetGoals() {
     assertEquals(goals, game.getGoals());
   }
 
+  /**
+   * Test that the begin method returns the correct passage
+   */
   @Test
   void testBeginGame() {
     assertEquals(testPassage1, game.begin());
   }
 
+  /**
+   * Test that the go method returns the correct passage
+   */
   @Test
   void testGetPassage() {
     assertEquals(testPassage2, game.go(testLink1));
   }
-
-
 
 
 }

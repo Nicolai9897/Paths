@@ -8,6 +8,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
+/**
+ * Test class for HealthGoal instance
+ */
 public class HealthGoalTest {
 
   HealthGoal healthGoal;
@@ -19,6 +22,10 @@ public class HealthGoalTest {
     healthGoal = new HealthGoal(0);
   }
 
+    /**
+     * Test that the HealthGoal instance returns true when the player has a health
+     * equal to or bellow the minimum amount of health
+     */
   @Test
   void testIsFullfilled() {
     assertFalse(healthGoal.isFullfilled(player));

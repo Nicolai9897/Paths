@@ -6,16 +6,25 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class GoldActionTest {
+/**
+ * Test class for GoldAction instance
+ */
+class GoldActionTest {
     GoldAction goldAction;
     Player player;
 
+    /**
+     * Create a player to execute the action on.
+     */
     @BeforeEach
     public void createGoldAction(){
 
         player = new Player("Markus", 100, 20, 50);
     }
 
+    /**
+     * Test that the GoldAction instance adds the correct amount of gold to the player
+     */
     @Test
     void testExecute(){
         goldAction = new GoldAction(100);
@@ -23,6 +32,9 @@ public class GoldActionTest {
         assertEquals(150, player.getGold());
     }
 
+    /**
+     * Test that the GoldAction instance removes the correct amount of gold to the player
+     */
     @Test
     void testExecuteNegative(){
         goldAction = new GoldAction(-10);

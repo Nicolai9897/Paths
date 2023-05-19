@@ -7,17 +7,26 @@ import no.ntnu.idatg2001.paths.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class InventoryActionTest {
+/**
+ * Test class for InventoryAction instance
+ */
+class InventoryActionTest {
   InventoryAction inventoryAction;
   Player player;
 
+  /**
+   * Create a player to execute the action on.
+   */
   @BeforeEach
-  public void createInventoryAction(){
+  public void createInventoryAction() {
     player = new Player("Markus", 100, 20, 50);
   }
 
+  /**
+   * Test that the InventoryAction instance adds the correct item to the player
+   */
   @Test
-  void testExecute(){
+  void testExecute() {
     inventoryAction = new InventoryAction("sword");
     inventoryAction.execute(player);
     assertTrue(player.getInventory().contains("sword"));

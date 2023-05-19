@@ -10,6 +10,9 @@ import no.ntnu.idatg2001.paths.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Test class for InventoryGoal instance
+ */
 class InventoryGoalTest {
   private List<String> mandatoryItems;
   private InventoryGoal inventoryGoal;
