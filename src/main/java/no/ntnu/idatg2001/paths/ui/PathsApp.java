@@ -1,5 +1,6 @@
 package no.ntnu.idatg2001.paths.ui;
 
+import java.io.File;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
@@ -8,7 +9,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import no.ntnu.idatg2001.paths.Game;
+import no.ntnu.idatg2001.paths.base.Story;
 
 // TODO: Refactor UI implementation for modularization and scalability.
 
@@ -19,19 +24,33 @@ public class PathsApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        Story story;
+        Game game;
 
         primaryStage.setTitle("Paths");
+        primaryStage.setWidth(840);
+        primaryStage.setHeight(600);
 
         //Configurations for the first scene
-        Button continueButton = new Button("Continue");
-        Label welcome = new Label("Welcome to Paths!");
+        Button startButton = new Button("Start Game");
+        startButton.setPrefSize(200,100);
+        startButton.setFont(new Font(20));
+        Button editPlayerButton = new Button("Edit player");
+        Button editGoalsButton = new Button("Edit goals");
+        Button loadStoryButton = new Button("Load Story");
 
-        VBox scene1Node = new VBox(50, welcome, continueButton);
-        scene1Node.setAlignment(Pos.CENTER);
+        Label pathsLabel = new Label("Paths");
+        pathsLabel.setFont(Font.font("Comic Sans MS", 72));
+        Label storyTitleLabel = new Label("story title example");
+        pathsLabel.setFont(Font.font("Comic Sans MS", 72));
+        VBox controlButtons = new VBox(10, startButton, editPlayerButton, editGoalsButton, loadStoryButton);
+        VBox node = new VBox(50, pathsLabel, controlButtons);
+        controlButtons.setAlignment(Pos.CENTER);
+        node.setAlignment(Pos.CENTER);
         BorderPane pane1 = new BorderPane();
         pane1.setTop(menuBar());
-        pane1.setCenter(scene1Node);
-        Scene scene1 = new Scene(pane1, 600, 600);
+        pane1.setCenter(node);
+        Scene scene1 = new Scene(pane1, 840, 600);
 
 
 
@@ -46,8 +65,20 @@ public class PathsApp extends Application {
         pane2.setCenter(scene2Node);
         Scene scene2 = new Scene(pane2, 300, 300);
 
-        // Actions for the buttons
-        continueButton.setOnAction(e -> primaryStage.setScene(scene2));
+        // Actions for the buttons in scene1
+        startButton.setOnAction(e -> primaryStage.setScene(scene2));
+        loadStoryButton.setOnAction(e -> {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Open Story File");
+            File file = fileChooser.showOpenDialog(primaryStage);
+            if (file != null) {
+                // Load the story from the file. Should also check that it is a .paths file
+
+            }
+        });
+
+
+        // Actions for the buttons in scene2
         backButton.setOnAction(e -> primaryStage.setScene(scene1));
 
         primaryStage.setScene(scene1);
