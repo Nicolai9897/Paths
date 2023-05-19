@@ -1,4 +1,6 @@
-package no.ntnu.idatg2001.paths.ui;
+package no.ntnu.idatg2001.paths;
+
+import no.ntnu.idatg2001.paths.ui.PathsApp;
 
 /**
  * Main receives UI configuration from PathsApp and runs the application.
