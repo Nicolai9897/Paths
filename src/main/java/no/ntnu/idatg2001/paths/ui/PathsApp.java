@@ -3,16 +3,19 @@ package no.ntnu.idatg2001.paths.ui;
 import java.io.File;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import no.ntnu.idatg2001.paths.Game;
+import no.ntnu.idatg2001.paths.base.Passage;
 import no.ntnu.idatg2001.paths.base.Story;
 
 // TODO: Refactor UI implementation for modularization and scalability.
@@ -42,14 +45,24 @@ public class PathsApp extends Application {
         Label pathsLabel = new Label("Paths");
         pathsLabel.setFont(Font.font("Comic Sans MS", 72));
         Label storyTitleLabel = new Label("story title example");
-        pathsLabel.setFont(Font.font("Comic Sans MS", 72));
+        storyTitleLabel.setFont(Font.font("Comic Sans MS", 16));
+
+        ListView<String> passageList = new ListView<>();
+        passageList.setPrefSize(30,200);
+        passageList.setStyle("-fx-border-color:black;");
+
         VBox controlButtons = new VBox(10, startButton, editPlayerButton, editGoalsButton, loadStoryButton);
-        VBox node = new VBox(50, pathsLabel, controlButtons);
+        VBox centerNode = new VBox(50, pathsLabel, controlButtons);
+        VBox rightNode = new VBox(10, storyTitleLabel, passageList);
+        rightNode.setPadding(new Insets(10));
+
         controlButtons.setAlignment(Pos.CENTER);
-        node.setAlignment(Pos.CENTER);
+        centerNode.setAlignment(Pos.CENTER);
+        rightNode.setAlignment(Pos.CENTER);
         BorderPane pane1 = new BorderPane();
         pane1.setTop(menuBar());
-        pane1.setCenter(node);
+        pane1.setCenter(centerNode);
+        pane1.setRight(rightNode);
         Scene scene1 = new Scene(pane1, 840, 600);
 
 
