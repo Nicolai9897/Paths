@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import no.ntnu.idatg2001.paths.Game;
 import no.ntnu.idatg2001.paths.base.Passage;
 import no.ntnu.idatg2001.paths.base.Story;
+import no.ntnu.idatg2001.paths.ui.dialogs.EditPlayerDialog;
 
 // TODO: Refactor UI implementation for modularization and scalability.
 
@@ -88,6 +89,11 @@ public class PathsApp extends Application {
                 // Load the story from the file. Should also check that it is a .paths file
 
             }
+        });
+
+        editPlayerButton.setOnAction(e -> {
+            EditPlayerDialog playerDialog = new EditPlayerDialog();
+            playerDialog.showDialog();
         });
 
 
