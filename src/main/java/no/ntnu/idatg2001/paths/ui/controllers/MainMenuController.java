@@ -23,7 +23,7 @@ public class MainMenuController extends BaseController {
     }
 
     public void onEditGoals() {
-
+        sceneManager.showEditGoalScene();
     }
 
     public void onLoadStoryButton() {

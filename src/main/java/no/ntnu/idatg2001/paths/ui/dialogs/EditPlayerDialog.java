@@ -26,7 +26,6 @@ public class EditPlayerDialog extends Dialog<ButtonType> {
     dialog.setTitle("New Player");
     dialog.setHeaderText("Enter player details");
 
-    // Assuming nameLabel, nameField, healthLabel, healthField, scoreLabel, and scoreField are already defined
     grid.add(nameLabel, 1, 1);
     grid.add(nameField, 1, 2);
     grid.add(healthLabel, 1, 3);
@@ -35,12 +34,10 @@ public class EditPlayerDialog extends Dialog<ButtonType> {
     grid.add(goldField, 1, 6);
     dialog.getDialogPane().setContent(grid);
 
-    // Add button to the dialog
     ButtonType buttonTypeOk = new ButtonType("Edit", ButtonBar.ButtonData.OK_DONE);
     ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
     dialog.getDialogPane().getButtonTypes().addAll(buttonTypeOk,buttonTypeCancel);
 
-    // Set result converter
     dialog.setResultConverter(b -> {
       if (b == buttonTypeOk) {
         PlayerBuilder builder = new PlayerBuilder()

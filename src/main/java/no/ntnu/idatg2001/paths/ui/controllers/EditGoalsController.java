@@ -4,14 +4,17 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import no.ntnu.idatg2001.paths.ui.scenes.SceneManager;
 
-public class EditGoalsController {
+public class EditGoalsController extends BaseController{
 
-        private Stage stage;
-        private SceneManager scene;
 
-        public EditGoalsController(Stage stage, SceneManager scene){
-            this.stage = stage;
-            this.scene = scene;
-        }
+    public EditGoalsController(SceneManager sceneManager){
+        super(sceneManager);
+    }
+
+    public void goalsDropDown() {
+        sceneManager.showEditGoalScene();
+    }
+
+
 
 }

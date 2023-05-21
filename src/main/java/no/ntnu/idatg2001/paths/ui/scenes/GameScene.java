@@ -23,8 +23,9 @@ public class GameScene extends BaseScene{
         Button backButton = new Button("Back");
         VBox centerNode = new VBox(10, label, backButton);
         centerNode.setAlignment(Pos.CENTER);
+
         BorderPane pane = new BorderPane();
-        pane.setTop(menuBar(gameController));
+        pane.setTop(menuBar);
         pane.setCenter(centerNode);
 
         backButton.setOnAction(e -> gameController.onBackButton());

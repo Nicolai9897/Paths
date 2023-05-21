@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuBar;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -14,7 +15,7 @@ import no.ntnu.idatg2001.paths.ui.controllers.MainMenuController;
 
 public class MainMenuScene extends BaseScene{
 
-    private MainMenuController mainMenuController;
+    private final MainMenuController mainMenuController;
 
     public MainMenuScene(SceneManager sceneManager, Stage stage,MainMenuController mainMenuController) {
         super(sceneManager, stage);
@@ -49,7 +50,7 @@ public class MainMenuScene extends BaseScene{
 
         //Pane setup
         BorderPane pane = new BorderPane();
-        pane.setTop(menuBar(mainMenuController));
+        pane.setTop(menuBar);
         pane.setCenter(centerNode);
         pane.setRight(rightNode);
 
