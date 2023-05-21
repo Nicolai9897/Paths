@@ -18,8 +18,7 @@ public class MainMenuController extends BaseController {
     }
 
     public void onEditPlayer() {
-        EditPlayerDialog playerDialog = new EditPlayerDialog();
-        playerDialog.showDialog();
+        sceneManager.showEditPlayerScene();
     }
 
     public void onEditGoals() {
