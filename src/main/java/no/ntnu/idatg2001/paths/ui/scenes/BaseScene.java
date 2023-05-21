@@ -6,7 +6,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
-import no.ntnu.idatg2001.paths.ui.controllers.MenuBarController;
+import no.ntnu.idatg2001.paths.ui.controllers.BaseController;
 
 public abstract class BaseScene {
 
@@ -25,11 +25,12 @@ public abstract class BaseScene {
     public Scene getScene() {
         return this.scene;
     }
+
     /**
      * menuBar method creates the menubar for the application window. Returns the menubar so this can be implemented easily in every scene.
      * @return The menubar
      */
-    public Node menuBar(MenuBarController controller){
+    public Node menuBar(BaseController controller){
         MenuBar menuBar = new MenuBar();
 
         Menu fileMenu = new Menu("File");
@@ -38,8 +39,8 @@ public abstract class BaseScene {
         MenuItem home = new Menu("Home");
         MenuItem closeItem = new MenuItem("Close");
         fileMenu.getItems().addAll(home, closeItem);
-        home.setOnAction(e -> controller.onHome());
-        closeItem.setOnAction(e -> controller.onExit());
+        home.setOnAction(e -> controller.menuBarHome());
+        closeItem.setOnAction(e -> controller.menuBarExit());
 
         return menuBar;
     }

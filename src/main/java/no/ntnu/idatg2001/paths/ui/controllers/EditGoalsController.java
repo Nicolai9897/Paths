@@ -14,8 +14,4 @@ public class EditGoalsController {
             this.scene = scene;
         }
 
-        public void onEditGoal() {
-            Scene editGoalScene = scene.editGoalScene();
-            this.stage.setScene(editGoalScene);
-        }
 }
