@@ -4,8 +4,6 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import no.ntnu.idatg2001.paths.Player;
 import no.ntnu.idatg2001.paths.PlayerBuilder;
-
-import java.io.IOException;
 import java.util.Optional;
 
 public class EditPlayerDialog extends Dialog<ButtonType> {

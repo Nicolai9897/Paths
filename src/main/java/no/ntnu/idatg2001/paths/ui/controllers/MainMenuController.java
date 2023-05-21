@@ -3,15 +3,15 @@ package no.ntnu.idatg2001.paths.ui.controllers;
 import javafx.scene.Scene;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import no.ntnu.idatg2001.paths.ui.Scenes;
+import no.ntnu.idatg2001.paths.ui.scenes.SceneManager;
 import no.ntnu.idatg2001.paths.ui.dialogs.EditPlayerDialog;
 import java.io.File;
 
 public class MainMenuController {
     private Stage stage;
-    private Scenes scene;
+    private SceneManager scene;
 
-    public MainMenuController(Stage stage, Scenes scene){
+    public MainMenuController(Stage stage, SceneManager scene){
         this.stage = stage;
         this.scene = scene;
     }
@@ -25,6 +25,11 @@ public class MainMenuController {
     public void onEditPlayer() {
         EditPlayerDialog playerDialog = new EditPlayerDialog();
         playerDialog.showDialog();
+    }
+
+    public void onEditGoals() {
+        Scene editGoalsScene = scene.editGoalScene();
+        this.stage.setScene(editGoalsScene);
     }
 
     public void onLoadStoryButton() {

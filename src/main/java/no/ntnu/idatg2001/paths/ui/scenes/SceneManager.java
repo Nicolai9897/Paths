@@ -1,6 +1,5 @@
-package no.ntnu.idatg2001.paths.ui;
+package no.ntnu.idatg2001.paths.ui.scenes;
 
-import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -9,19 +8,25 @@ import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
+import no.ntnu.idatg2001.paths.ui.controllers.EditGoalsController;
 import no.ntnu.idatg2001.paths.ui.controllers.MainMenuController;
+import no.ntnu.idatg2001.paths.ui.controllers.MenuBarController;
 
 
-
-public class Scenes {
+public class SceneManager {
     private MainMenuController mainMenuController;
+    private EditGoalsController goalsController;
+    private MenuBarController menuBarcontroller;
 
-    public Scenes(MainMenuController controller){
-        this.mainMenuController = controller;
+    public SceneManager(MainMenuController mainMenuController, EditGoalsController goalsController){
+        this.mainMenuController = mainMenuController;
+        this.goalsController = goalsController;
     }
 
 
     public Scene mainMenu(MainMenuController controller){
+
 
         //UI controls design
         Button startButton = new Button("Start Game");
@@ -48,32 +53,43 @@ public class Scenes {
         rightNode.setAlignment(Pos.CENTER);
 
         //Pane setup
-        BorderPane pane1 = new BorderPane();
-        pane1.setTop(menuBar());
-        pane1.setCenter(centerNode);
-        pane1.setRight(rightNode);
+        BorderPane pane = new BorderPane();
+        pane.setTop(menuBar(new MenuBarController(new Stage(), new SceneManager(mainMenuController,goalsController))));
+        pane.setCenter(centerNode);
+        pane.setRight(rightNode);
 
         //button functionality
         startButton.setOnAction(e -> controller.onStartGame());
         loadStoryButton.setOnAction(e -> controller.onLoadStoryButton());
         editPlayerButton.setOnAction(e -> controller.onEditPlayer());
+        editGoalsButton.setOnAction(e -> controller.onEditGoals());
 
-
-        Scene mainMenuScene = new Scene(pane1, 840, 600);
+        Scene mainMenuScene = new Scene(pane, 840, 600);
 
         return mainMenuScene;
     }
 
     public Scene startGameScene() {
 
-        Label centerNode = new Label("wow it worked");
-        BorderPane pane2 = new BorderPane();
-        pane2.setTop(menuBar());
-        pane2.setCenter(centerNode);
+        Label centerNode = new Label("start game scene");
+        BorderPane pane = new BorderPane();
+        pane.setTop(menuBar(new MenuBarController(new Stage(), new SceneManager(mainMenuController,goalsController))));
+        pane.setCenter(centerNode);
 
-        Scene startGameScene = new Scene(pane2, 840, 600);
+        Scene startGameScene = new Scene(pane, 840, 600);
 
         return startGameScene;
+    }
+
+    public Scene editGoalScene() {
+
+        Label centerNode = new Label("edit goal scene");
+        BorderPane pane = new BorderPane();
+        pane.setTop(menuBar(new MenuBarController(new Stage(), new SceneManager(mainMenuController,goalsController))));
+        pane.setCenter(centerNode);
+        Scene editGoalScene = new Scene(pane, 840, 600);
+
+        return editGoalScene;
     }
 
 
@@ -81,15 +97,17 @@ public class Scenes {
      * menuBar method creates the menubar for the application window. Returns the menubar so this can be implemented easily in every scene.
      * @return The menubar
      */
-    public Node menuBar(){
+    public Node menuBar(MenuBarController controller){
         MenuBar menuBar = new MenuBar();
 
         Menu fileMenu = new Menu("File");
         menuBar.getMenus().add(fileMenu);
 
+        MenuItem home = new Menu("Home");
         MenuItem closeItem = new MenuItem("Close");
-        fileMenu.getItems().add(closeItem);
-        closeItem.setOnAction(e -> Platform.exit());
+        fileMenu.getItems().addAll(home, closeItem);
+        home.setOnAction(e -> controller.onHome());
+        closeItem.setOnAction(e -> controller.onExit());
 
         return menuBar;
     }
