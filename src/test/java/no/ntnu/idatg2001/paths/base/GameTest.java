@@ -9,8 +9,7 @@ import no.ntnu.idatg2001.paths.Goals.GoldGoal;
 import no.ntnu.idatg2001.paths.Goals.HealthGoal;
 import no.ntnu.idatg2001.paths.Goals.InventoryGoal;
 import no.ntnu.idatg2001.paths.Goals.ScoreGoal;
-import no.ntnu.idatg2001.paths.Player;
-import no.ntnu.idatg2001.paths.Game;
+import no.ntnu.idatg2001.paths.Player.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

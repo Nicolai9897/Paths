@@ -1,7 +1,7 @@
 package no.ntnu.idatg2001.paths.Goals;
 
 import java.util.stream.Stream;
-import no.ntnu.idatg2001.paths.Player;
+import no.ntnu.idatg2001.paths.Player.Player;
 
 /**
  * The HealthGoal class implements the Goal interface. Checks if the player's

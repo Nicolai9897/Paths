@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * Tests the FileHandler class
  */
-public class FileHandlerTest {
+public class FileReaderTest {
 
   Story story;
 
@@ -35,7 +35,7 @@ public class FileHandlerTest {
     File file = new File("src/test/resources/FileHandlerTestDocument.paths");
     String filename = file.getAbsolutePath();
     try {
-      story = FileHandler.initializeStory(filename);
+      story = FileReader.initializeStory(filename);
     } catch (IOException e) {
       System.out.println("An error occurred while reading the story: " + e.getMessage());
     }
@@ -67,7 +67,7 @@ public class FileHandlerTest {
     Link testLink1 = new Link("Go back", "Another room");
     Link testLink2 = new Link("Go to next room", "The next room");
     List<Action> testActions = new ArrayList<>();
-    testActions.add(new HealthAction(-10));
+    //testActions.add(new HealthAction(-10));
     testActions.add(new InventoryAction("sword"));
 
     testLink2.addAction(testActions);

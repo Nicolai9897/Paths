@@ -23,7 +23,7 @@ public class FileWriterTest {
 
     @Test
     void testWriteStory() {
-        String filename = "src/test/resources/qwerFileWriterTestDocument.paths";
+        String filename = "src/test/resources/FileWriterTestDocument.paths";
         try {
             FileWriter.writeStory(story, filename);
         } catch (IOException e) {

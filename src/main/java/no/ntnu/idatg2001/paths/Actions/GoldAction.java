@@ -1,6 +1,6 @@
 package no.ntnu.idatg2001.paths.Actions;
 
-import no.ntnu.idatg2001.paths.Player;
+import no.ntnu.idatg2001.paths.Player.Player;
 
 /**
  * The GoldAction class implements the Action interface. Contains methods

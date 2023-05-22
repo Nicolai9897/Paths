@@ -2,7 +2,7 @@ package no.ntnu.idatg2001.paths.Goals;
 
 import java.util.HashSet;
 import java.util.stream.Stream;
-import no.ntnu.idatg2001.paths.Player;
+import no.ntnu.idatg2001.paths.Player.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,11 +22,7 @@ public class InventoryGoal implements Goal {
    */
   public InventoryGoal(List<String> mandatoryItems) {
     this.mandatoryItems = new ArrayList<>(mandatoryItems);
-    /*mandatoryItems.add("Twisted Bow");
-    mandatoryItems.add("Excalibur");
-    mandatoryItems.add("Merlin's beard");
-    mandatoryItems.add("Ancestral hat");
-    mandatoryItems.add("Primordial boots");*/
+
   }
 
   /**

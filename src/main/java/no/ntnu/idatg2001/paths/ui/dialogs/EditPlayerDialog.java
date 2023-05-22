@@ -2,8 +2,8 @@ package no.ntnu.idatg2001.paths.ui.dialogs;
 
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import no.ntnu.idatg2001.paths.Player;
-import no.ntnu.idatg2001.paths.PlayerBuilder;
+import no.ntnu.idatg2001.paths.Player.Player;
+import no.ntnu.idatg2001.paths.Player.PlayerBuilder;
 import java.util.Optional;
 
 public class EditPlayerDialog extends Dialog<ButtonType> {

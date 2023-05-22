@@ -1,7 +1,4 @@
-package no.ntnu.idatg2001.paths;
-
-import java.util.ArrayList;
-import java.util.List;
+package no.ntnu.idatg2001.paths.Player;
 
 public class PlayerBuilder {
   private String name;
@@ -13,20 +10,6 @@ public class PlayerBuilder {
      * Instantiates a new Player builder.
      */
   public PlayerBuilder() {
-
-    /* Example on how to use the builder:
-     *
-     *
-    Player player = new PlayerBuilder()
-        .withName("John")
-        .withHealth(100)
-        .withScore(500)
-        .withGold(50)
-        .addToInventory("Sword")
-        .addToInventory("Shield");
-     */
-
-
 
     // Set default values
     this.name = "";

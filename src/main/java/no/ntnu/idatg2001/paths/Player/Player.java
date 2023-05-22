@@ -1,4 +1,4 @@
-package no.ntnu.idatg2001.paths;
+package no.ntnu.idatg2001.paths.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +16,8 @@ public class Player {
   private int score;
   private int gold;
   private final List<String> inventory;
+
+
 
   /**
    * Constructor for the player class.
