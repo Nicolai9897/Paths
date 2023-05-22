@@ -1,6 +1,8 @@
 package no.ntnu.idatg2001.paths.base;
 
 
+import no.ntnu.idatg2001.paths.customExceptions.InvalidLinkException;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -16,9 +18,10 @@ import java.util.Map;
  */
 public class Story {
 
-  private String title;
+  private final String title;
   private HashMap<Link, Passage> passages;
-  private Passage opening;
+  private final Passage opening;
+  private Passage currentPassage;
 
 
   /**
@@ -32,7 +35,9 @@ public class Story {
     this.opening = openingPassage;
     this.passages = new HashMap<>();
     addPassage(openingPassage);
+    currentPassage = openingPassage;
   }
+
 
   /**
    * Gets title.
@@ -70,6 +75,7 @@ public class Story {
   public Passage getPassage(Link link) {
     for (Map.Entry<Link, Passage> passage : passages.entrySet()) {
       if (passage.getKey().getReference().equalsIgnoreCase(link.getReference())) {
+        currentPassage = passage.getValue();
         return passage.getValue();
       }
     }
@@ -92,7 +98,7 @@ public class Story {
    */
   public void removePassage(Link link) throws IllegalArgumentException {
     boolean hasLink = passages.values().stream()
-        .anyMatch(passage -> passage.getLinks().contains(link));
+            .anyMatch(passage -> passage.getLinks().contains(link));
     if (hasLink) {
       throw new IllegalArgumentException("Cannot remove passage with links");
     }
@@ -107,9 +113,24 @@ public class Story {
    */
   public List<Link> getBrokenLinks() {
     return passages.values().stream()
-        .flatMap(passage -> passage.getLinks().stream())
-        .filter(link -> !passages.containsKey(link))
-        .toList();
+            .flatMap(passage -> passage.getLinks().stream())
+            .filter(link -> !passages.containsKey(link))
+            .toList();
   }
 
+
+  /**
+   * Method to go from one passage, to the passage written by the user.
+   *
+   * @param link the link to the passage
+   */
+  public Passage getLink(String link)  throws InvalidLinkException {
+    for (Link links : currentPassage.getLinks()) {
+      if (links.getText().equalsIgnoreCase(link)) {
+        return getPassage(links);
+      }
+    }
+    throw new InvalidLinkException("link to next passage not found. " +
+            "please check that next passage is spelled correctly");
+  }
 }
