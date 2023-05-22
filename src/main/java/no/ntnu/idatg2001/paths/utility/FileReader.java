@@ -1,11 +1,7 @@
 package no.ntnu.idatg2001.paths.utility;
 
 
-import static no.ntnu.idatg2001.paths.utility.ActionTypeEnums.GOLD;
-
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -107,20 +103,21 @@ public class FileReader {
         links.add(link);
       } else if (line.startsWith("{")) {
         List<Action> actions = new ArrayList<>();
-        boolean nextLineIsAction = true;
 
-        while (nextLineIsAction) {
+        boolean hasNextLine = true;
+        while (hasNextLine && line.startsWith("{")) {
           Action action = readAction(line);
           actions.add(action);
 
-          if (!scanner.nextLine().trim().equals("}")) {
-            nextLineIsAction = false;
-          } else {
-            line = scanner.nextLine().trim();
+            if (!scanner.hasNextLine()) {
+              line = scanner.nextLine().trim();
+            } else {
+              hasNextLine = false;
+            }
+
           }
-        }
         links.get(links.size() - 1).addAction(actions);
-      }else {
+      } else {
         contentBuilder.append(line);
       }
     }
