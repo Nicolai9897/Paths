@@ -15,7 +15,7 @@ public class Player {
   private int health;
   private int score;
   private int gold;
-  private List<String> inventory;
+  private final List<String> inventory;
 
   /**
    * Constructor for the player class.

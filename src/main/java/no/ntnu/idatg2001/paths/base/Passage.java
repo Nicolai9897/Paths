@@ -12,9 +12,9 @@ import java.util.Objects;
  * @version 1.0-SNAPSHOT
  */
 public class Passage {
-  private String title;
-  private String content;
-  private ArrayList<Link> linkList;
+  private final String title;
+  private final String content;
+  private final ArrayList<Link> linkList;
 
   /**
    * Instantiates a new Passage.
