@@ -78,6 +78,12 @@ public class EditGoalsScene extends  BaseScene{
         goalListNode.setPadding(new Insets(10));
         goalListNode.setAlignment(Pos.CENTER);
 
+        //Bottom container
+        Button backButton = new Button("Back");
+        VBox bottomNode = new VBox(backButton);
+        bottomNode.setPadding(new Insets(25));
+
+
 
         //Pane setup
         BorderPane pane = new BorderPane();
@@ -85,6 +91,10 @@ public class EditGoalsScene extends  BaseScene{
         pane.setLeft(goalControls);
         pane.setCenter(center);
         pane.setRight(goalListNode);
+        pane.setBottom(bottomNode);
+
+        //Button functionality
+        backButton.setOnAction(e -> editGoalsController.onMenuBarHome());
 
         scene = new Scene(pane, 840, 600);
     }
