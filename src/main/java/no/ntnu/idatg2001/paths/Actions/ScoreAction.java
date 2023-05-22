@@ -19,6 +19,10 @@ public class ScoreAction implements Action {
     this.points = points;
   }
 
+  public int getPoints() {
+      return points;
+  }
+
   @Override
   public void execute(Player player) {
     player.addScore(points);

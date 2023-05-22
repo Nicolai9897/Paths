@@ -7,7 +7,7 @@ import no.ntnu.idatg2001.paths.Player;
  * for altering the player's gold.
  */
 public class GoldAction implements Action {
-  private int gold;
+  private final int gold;
 
 
   /**
@@ -17,6 +17,10 @@ public class GoldAction implements Action {
    */
   public GoldAction(int gold) {
     this.gold = gold;
+  }
+
+  public int getGold() {
+      return gold;
   }
 
   @Override

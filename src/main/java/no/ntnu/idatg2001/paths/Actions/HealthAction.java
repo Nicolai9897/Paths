@@ -19,6 +19,10 @@ public class HealthAction implements Action {
     this.health = health;
   }
 
+  public int getHealth() {
+    return health;
+  }
+
   @Override
   public void execute(Player player) {
     player.addHealth(health);
