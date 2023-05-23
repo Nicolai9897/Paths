@@ -3,6 +3,7 @@ module no.ntnu.idatg2001.paths {
   requires javafx.graphics;
   requires javafx.base;
 
+  exports no.ntnu.idatg2001.paths;
   exports no.ntnu.idatg2001.paths.actions;
   exports no.ntnu.idatg2001.paths.base;
   exports no.ntnu.idatg2001.paths.customExceptions;
