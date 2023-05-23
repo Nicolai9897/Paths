@@ -21,6 +21,7 @@ public class GameScene extends BaseScene{
     private Label playerHealth;
     private Label playerScore;
     ListView<String> inventoryList;
+    Button backButton;
 
     public GameScene(SceneManager sceneManager, Stage stage, GameController controller){
         super(sceneManager, stage, controller);
@@ -36,7 +37,6 @@ public class GameScene extends BaseScene{
         titleBox.setPrefWidth(400.0);
         titleBox.setPrefHeight(100.0);
         titleBox.setAlignment(Pos.CENTER);
-        titleBox.setStyle("-fx-border-color:black;");
 
         //Passage title and text
         Label passageTitle = new Label("Passage Title");
@@ -58,6 +58,9 @@ public class GameScene extends BaseScene{
         Button confirmButton = new Button("Confirm");
         VBox passagesAndConfirm = new VBox(20, chooseLink, listView, confirmButton);
         passagesAndConfirm.setAlignment(Pos.CENTER);
+
+        backButton = new Button("Back");
+        VBox backBox = new VBox(backButton);
 
 
         //Player stats
@@ -99,26 +102,30 @@ public class GameScene extends BaseScene{
         storyGoals.getItems().add("Goal 1");
         storyGoals.getItems().add("Goal 2");
 
-        VBox storyBox = new VBox(10, storyGoalLabel, storyGoals);
-        storyBox.setAlignment(Pos.CENTER);
-        storyBox.setPrefHeight(100);
+        VBox storyGoalBox = new VBox(10, storyGoalLabel, storyGoals);
+        storyGoalBox.setAlignment(Pos.CENTER);
+        storyGoalBox.setPrefHeight(100);
 
 
         AnchorPane pane = new AnchorPane();
         AnchorPane.setTopAnchor(menuBar, 0.0);
         AnchorPane.setLeftAnchor(menuBar, 0.0);
-        AnchorPane.setTopAnchor(titleBox, 0.0);
+        AnchorPane.setRightAnchor(menuBar,0.0);
+        AnchorPane.setTopAnchor(titleBox, 10.0);
         AnchorPane.setLeftAnchor(titleBox, 220.0);
         AnchorPane.setTopAnchor(titleAndText, 120.0);
         AnchorPane.setLeftAnchor(titleAndText, 20.0);
         AnchorPane.setTopAnchor(passagesAndConfirm, 120.0);
         AnchorPane.setRightAnchor(passagesAndConfirm, 20.0);
-        AnchorPane.setBottomAnchor(playerStatistics, 25.0);
+        AnchorPane.setBottomAnchor(playerStatistics, 75.0);
         AnchorPane.setLeftAnchor(playerStatistics, 25.0);
-        AnchorPane.setBottomAnchor(storyBox, 25.0);
-        AnchorPane.setRightAnchor(storyBox, 25.0);
+        AnchorPane.setBottomAnchor(storyGoalBox, 75.0);
+        AnchorPane.setRightAnchor(storyGoalBox, 25.0);
+        AnchorPane.setBottomAnchor(backBox,25.0);
+        AnchorPane.setLeftAnchor(backBox,25.0);
 
-        pane.getChildren().addAll(menuBar, titleBox, titleAndText, passagesAndConfirm, playerStatistics, storyBox);
+        pane.getChildren().addAll(menuBar, titleBox, titleAndText, passagesAndConfirm, playerStatistics, storyGoalBox, backBox);
+        backButton.setOnAction(e -> gameController.onBackButton());
 
 
         scene = new Scene(pane, 840, 600);
@@ -132,5 +139,8 @@ public class GameScene extends BaseScene{
         playerScore.setText(String.valueOf(player.getScore()));
         inventoryList.getItems().addAll(player.getInventory());
 
+    }
+    public Button getFocusButton() {
+        return backButton;
     }
 }

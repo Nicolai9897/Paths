@@ -8,9 +8,12 @@ import no.ntnu.idatg2001.paths.Game;
 import no.ntnu.idatg2001.paths.Player;
 import no.ntnu.idatg2001.paths.ui.scenes.SceneManager;
 import no.ntnu.idatg2001.paths.ui.dialogs.EditPlayerDialog;
+import no.ntnu.idatg2001.paths.utility.FileHandler;
+
 import java.io.File;
 
 public class MainMenuController extends BaseController {
+
 
     public MainMenuController(SceneManager sceneManager) {
         super(sceneManager);
@@ -40,8 +43,8 @@ public class MainMenuController extends BaseController {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Story File");
         File file = fileChooser.showOpenDialog(sceneManager.getStage());
-        if (file != null) {
-            // Load the story from the file. Should also check that it is a .paths file
+        if (file != null && file.getName().contains(".paths")) {
+            System.out.println(file.getName() + "\n" + file.getPath());
 
         }
     }

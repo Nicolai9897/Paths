@@ -5,6 +5,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -66,6 +68,12 @@ public class EditPlayerScene extends  BaseScene {
         editPlayerButton.setOnAction(e -> editPlayerController.onEditPlayer());
 
         scene = new Scene(pane, 840, 600);
+    }
+
+    @Override
+    protected MenuBar createMenuBar() {
+        return super.createMenuBar();
+
     }
 
     public void updatePlayerInfo(Player player) {

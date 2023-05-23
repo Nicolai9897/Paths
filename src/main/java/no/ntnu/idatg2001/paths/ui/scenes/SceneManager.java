@@ -1,18 +1,13 @@
 package no.ntnu.idatg2001.paths.ui.scenes;
 
 import javafx.application.Platform;
-import javafx.scene.Node;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 import no.ntnu.idatg2001.paths.Game;
-import no.ntnu.idatg2001.paths.Goals.Goal;
 import no.ntnu.idatg2001.paths.Player;
-import no.ntnu.idatg2001.paths.base.Story;
 import no.ntnu.idatg2001.paths.ui.controllers.*;
-
-import java.util.List;
 
 
 public class SceneManager {
@@ -32,9 +27,6 @@ public class SceneManager {
     private EditGoalsScene editGoalsScene;
     private EditPlayerScene editPlayerScene;
     private GameOverScene gameOverScene;
-
-
-
 
     public SceneManager(Stage stage){
         this.stage = stage;
@@ -58,11 +50,20 @@ public class SceneManager {
 
     public void showMainMenuScene() {
         stage.setScene(mainMenuScene.getScene());
+        Platform.runLater(() -> {
+            mainMenuScene.getFocusButton().requestFocus();
+        });
+
+
 
     }
 
     public void showGameScene() {
         stage.setScene(gameScene.getScene());
+        Platform.runLater(() -> {
+            gameScene.getFocusButton().requestFocus();
+        });
+
     }
 
     public void showEditPlayerScene(){
@@ -71,11 +72,13 @@ public class SceneManager {
 
     public void showEditGoalScene() {
         stage.setScene(editGoalsScene.getScene());
+        editGoalsScene.getScene().getRoot().requestFocus();
     }
 
 
     public void showGameOver() {
         gameOverScene.setMessage(gameOverController.checkGameEndCondition());
+        gameOverScene.menuBar.requestFocus();
     }
 
     public void updatePlayerInEditScene(Player player) {
@@ -90,6 +93,7 @@ public class SceneManager {
     public Stage getStage() {
         return this.stage;
     }
+
 
 
 }

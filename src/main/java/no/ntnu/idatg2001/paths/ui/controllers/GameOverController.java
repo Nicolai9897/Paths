@@ -15,21 +15,13 @@ public class GameOverController extends BaseController{
     }
 
     public void onCloseGame() {
-        //Back to mainmenu or close app?
         sceneManager.showMainMenuScene();
-        //or
-    //  Platform.exit();
     }
 
     public boolean checkGameEndCondition() {
         boolean gameWon;
-        //check game end condition, i.e if goal were reached
+        //check game end condition, ie if goal were reached
 
-        /* if(sjekke i model om spillet er over) {
-                gameWon = model.isFulfilled()
-           }
-           return gameWon;
-         */
 
         return true;
     }

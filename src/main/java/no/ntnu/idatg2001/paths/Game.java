@@ -59,5 +59,9 @@ public class Game {
       this.player = player;
   }
 
+  public void setStory(Story story) {
+    this.story = story;
+  }
+
 }
 

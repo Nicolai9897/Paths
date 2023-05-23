@@ -15,6 +15,7 @@ import no.ntnu.idatg2001.paths.ui.controllers.MainMenuController;
 public class MainMenuScene extends BaseScene{
 
     private final MainMenuController mainMenuController;
+    Button startButton;
 
     public MainMenuScene(SceneManager sceneManager, Stage stage,MainMenuController controller) {
         super(sceneManager, stage, controller);
@@ -24,9 +25,10 @@ public class MainMenuScene extends BaseScene{
     @Override
     protected void setupScene() {
         //UI controls design
-        Button startButton = new Button("Start Game");
+        startButton = new Button("Start Game");
         startButton.setPrefSize(200,100);
         startButton.setFont(new Font(20));
+        startButton.setFocusTraversable(true);
         Button editPlayerButton = new Button("Edit player");
         Button editGoalsButton = new Button("Edit goals");
         Button loadStoryButton = new Button("Load Story");
@@ -61,5 +63,12 @@ public class MainMenuScene extends BaseScene{
 
         scene = new Scene(pane, 840, 600);
 
+
     }
+
+
+    public Button getFocusButton() {
+        return startButton;
+    }
+
 }
