@@ -8,6 +8,9 @@ import java.util.Optional;
 /**
  * Controller for the EditPlayerScene. Handles the actions for when something happens in the scene.
  * Inherits from the Super Class BaseController.
+ *
+ * @author Candidate nr. 10029 & Candidate nr. 10023
+ * @version 1.0-SNAPSHOT
  */
 public class EditPlayerController extends BaseController{
 

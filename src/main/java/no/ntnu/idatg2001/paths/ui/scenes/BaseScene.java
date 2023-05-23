@@ -7,6 +7,16 @@ import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 import no.ntnu.idatg2001.paths.ui.controllers.BaseController;
 
+/**
+ * BaseScene is abstract class that serves as a super class for the other scenes. It contains
+ * references to commonly used objects. Scenes takes care of the javafx code for the design of the different
+ * views.
+ *
+ * @author Candidate nr. 10029 & Candidate nr. 10023
+ * @version 1.0-SNAPSHOT
+ *
+ *
+ */
 public abstract class BaseScene {
 
     protected Scene scene;

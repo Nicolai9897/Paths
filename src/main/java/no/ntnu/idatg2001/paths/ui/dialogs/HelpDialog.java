@@ -8,6 +8,9 @@ import javafx.scene.layout.VBox;
 
 /**
  * Class for the help dialog.
+ *
+ * @author Candidate nr. 10029 & Candidate nr. 10023
+ * @version 1.0-SNAPSHOT
  */
 public class HelpDialog extends Dialog<Void> {
 

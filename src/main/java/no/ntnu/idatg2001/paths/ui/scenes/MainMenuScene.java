@@ -12,6 +12,12 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import no.ntnu.idatg2001.paths.ui.controllers.MainMenuController;
 
+/**
+ * MainMenuScene
+ *
+ * @author Candidate nr. 10029 & Candidate nr. 10023
+ * @version 1.0-SNAPSHOT
+ */
 public class MainMenuScene extends BaseScene{
 
     private final MainMenuController mainMenuController;

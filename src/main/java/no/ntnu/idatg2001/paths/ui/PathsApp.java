@@ -7,7 +7,6 @@ import no.ntnu.idatg2001.paths.ui.controllers.EditGoalsController;
 import no.ntnu.idatg2001.paths.ui.controllers.MainMenuController;
 import no.ntnu.idatg2001.paths.ui.scenes.SceneManager;
 
-// TODO: Refactor UI implementation for modularization and scalability.
 
 /**
  * The PathsApp is the application entry point

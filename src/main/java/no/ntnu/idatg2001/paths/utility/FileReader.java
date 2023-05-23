@@ -15,6 +15,12 @@ import no.ntnu.idatg2001.paths.base.Link;
 import no.ntnu.idatg2001.paths.base.Passage;
 import no.ntnu.idatg2001.paths.base.Story;
 
+/**
+ * FileReader Class
+ *
+ * @author Candidate nr. 10029 & Candidate nr. 10023
+ * @version 1.0-SNAPSHOT
+ */
 public class FileReader {
 
   /**

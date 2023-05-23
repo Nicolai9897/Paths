@@ -6,7 +6,12 @@ import no.ntnu.idatg2001.paths.base.Game;
 import no.ntnu.idatg2001.paths.player.Player;
 import no.ntnu.idatg2001.paths.ui.controllers.*;
 
-
+/**
+ * SceneManager is a class that takes care of changing the scenes.
+ *
+ * @author Candidate nr. 10029 & Candidate nr. 10023
+ * @version 1.0-SNAPSHOT
+ */
 public class SceneManager {
     private final Stage stage;
     private final Game game;

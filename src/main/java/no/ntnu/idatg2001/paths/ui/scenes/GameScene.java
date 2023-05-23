@@ -11,6 +11,12 @@ import javafx.stage.Stage;
 import no.ntnu.idatg2001.paths.player.Player;
 import no.ntnu.idatg2001.paths.ui.controllers.GameController;
 
+/**
+ * GameScene
+ *
+ * @author Candidate nr. 10029 & Candidate nr. 10023
+ * @version 1.0-SNAPSHOT
+ */
 public class GameScene extends BaseScene{
 
     private final GameController gameController;

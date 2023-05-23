@@ -10,6 +10,9 @@ import java.util.Optional;
 
 /**
  * Dialog for editing the player information
+ *
+ * @author Candidate nr. 10029 & Candidate nr. 10023
+ * @version 1.0-SNAPSHOT
  */
 public class EditPlayerDialog extends Dialog<ButtonType> {
 
