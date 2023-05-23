@@ -15,4 +15,15 @@ module no.ntnu.idatg2001.paths {
   exports no.ntnu.idatg2001.paths.utility;
   exports no.ntnu.idatg2001.paths.player;
 
+  opens no.ntnu.idatg2001.paths;
+  opens no.ntnu.idatg2001.paths.actions;
+  opens no.ntnu.idatg2001.paths.base;
+  opens no.ntnu.idatg2001.paths.customExceptions;
+  opens no.ntnu.idatg2001.paths.goals;
+  opens no.ntnu.idatg2001.paths.ui;
+  opens no.ntnu.idatg2001.paths.ui.controllers;
+  opens no.ntnu.idatg2001.paths.ui.dialogs;
+  opens no.ntnu.idatg2001.paths.ui.scenes;
+  opens no.ntnu.idatg2001.paths.utility;
+  opens no.ntnu.idatg2001.paths.player;
 }
