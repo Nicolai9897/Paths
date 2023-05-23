@@ -1,5 +1,6 @@
 package no.ntnu.idatg2001.paths.ui.controllers;
 
+import no.ntnu.idatg2001.paths.Game;
 import no.ntnu.idatg2001.paths.ui.scenes.SceneManager;
 
 public class GameOverController extends BaseController{

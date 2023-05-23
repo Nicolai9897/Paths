@@ -15,7 +15,7 @@ public class GameOverScene extends BaseScene{
     private Label endCondition;
 
     public GameOverScene(SceneManager sceneManager, Stage stage, GameOverController controller) {
-        super(sceneManager, stage);
+        super(sceneManager, stage, controller);
         this.gameOverController = controller;
     }
 

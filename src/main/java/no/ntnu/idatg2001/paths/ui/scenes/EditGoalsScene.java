@@ -18,7 +18,7 @@ public class EditGoalsScene extends  BaseScene{
     private final EditGoalsController editGoalsController;
 
     public EditGoalsScene(SceneManager sceneManager, Stage stage, EditGoalsController controller) {
-        super(sceneManager, stage);
+        super(sceneManager, stage, controller);
         this.editGoalsController = controller;
     }
 

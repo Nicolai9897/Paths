@@ -23,8 +23,8 @@ public class PathsApp extends Application {
         primaryStage.setTitle("Paths");
         primaryStage.setWidth(840);
         primaryStage.setHeight(600);
+        primaryStage.setResizable(false);
         primaryStage.show();
-
     }
 
     public static void appMain(String[] args) {

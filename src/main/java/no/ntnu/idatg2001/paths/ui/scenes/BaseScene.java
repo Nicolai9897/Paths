@@ -6,16 +6,19 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
+import no.ntnu.idatg2001.paths.ui.controllers.BaseController;
 
 public abstract class BaseScene {
 
     protected Scene scene;
     protected Stage stage;
     protected SceneManager sceneManager;
+    protected BaseController controller;
     protected MenuBar menuBar;
 
-    public BaseScene(SceneManager sceneManager, Stage stage) {
+    public BaseScene(SceneManager sceneManager, Stage stage, BaseController controller) {
         this.sceneManager = sceneManager;
+        this.controller = controller;
         this.stage = stage;
         this.menuBar = createMenuBar();
 

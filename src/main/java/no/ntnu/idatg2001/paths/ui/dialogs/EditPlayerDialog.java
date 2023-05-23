@@ -4,9 +4,13 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import no.ntnu.idatg2001.paths.Player;
 import no.ntnu.idatg2001.paths.PlayerBuilder;
+import no.ntnu.idatg2001.paths.ui.controllers.EditPlayerController;
+
 import java.util.Optional;
 
 public class EditPlayerDialog extends Dialog<ButtonType> {
+
+  private EditPlayerController controller;
 
   private GridPane grid = new GridPane();
   private Label nameLabel = new Label("Name");
@@ -17,8 +21,9 @@ public class EditPlayerDialog extends Dialog<ButtonType> {
   private TextField goldField = new TextField();
 
 
-  public EditPlayerDialog() {
+  public EditPlayerDialog(EditPlayerController controller) {
     super();
+    this.controller = controller;
   }
 
   public Optional<Player> showDialog() {

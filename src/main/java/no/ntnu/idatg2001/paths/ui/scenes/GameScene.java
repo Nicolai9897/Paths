@@ -9,15 +9,19 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import no.ntnu.idatg2001.paths.Game;
+import no.ntnu.idatg2001.paths.Player;
 import no.ntnu.idatg2001.paths.ui.controllers.GameController;
 
 public class GameScene extends BaseScene{
 
     private GameController gameController;
+    private Player player;
 
     public GameScene(SceneManager sceneManager, Stage stage, GameController controller){
-        super(sceneManager, stage);
+        super(sceneManager, stage, controller);
         this.gameController = controller;
+        this.player = gameController.getPlayer();
     }
     @Override
     protected void setupScene() {

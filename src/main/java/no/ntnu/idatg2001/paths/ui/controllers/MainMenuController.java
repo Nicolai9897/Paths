@@ -3,6 +3,8 @@ package no.ntnu.idatg2001.paths.ui.controllers;
 import javafx.scene.Scene;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import no.ntnu.idatg2001.paths.Game;
+import no.ntnu.idatg2001.paths.Player;
 import no.ntnu.idatg2001.paths.ui.scenes.SceneManager;
 import no.ntnu.idatg2001.paths.ui.dialogs.EditPlayerDialog;
 import java.io.File;

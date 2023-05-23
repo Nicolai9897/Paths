@@ -16,9 +16,9 @@ public class MainMenuScene extends BaseScene{
 
     private final MainMenuController mainMenuController;
 
-    public MainMenuScene(SceneManager sceneManager, Stage stage,MainMenuController mainMenuController) {
-        super(sceneManager, stage);
-        this.mainMenuController = mainMenuController;
+    public MainMenuScene(SceneManager sceneManager, Stage stage,MainMenuController controller) {
+        super(sceneManager, stage, controller);
+        this.mainMenuController = controller;
     }
 
     @Override

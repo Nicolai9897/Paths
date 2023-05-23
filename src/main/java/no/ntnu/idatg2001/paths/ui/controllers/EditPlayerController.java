@@ -1,17 +1,29 @@
 package no.ntnu.idatg2001.paths.ui.controllers;
 
+import javafx.scene.control.Label;
+import no.ntnu.idatg2001.paths.Game;
+import no.ntnu.idatg2001.paths.Player;
 import no.ntnu.idatg2001.paths.ui.dialogs.EditPlayerDialog;
+import no.ntnu.idatg2001.paths.ui.scenes.EditPlayerScene;
 import no.ntnu.idatg2001.paths.ui.scenes.SceneManager;
 
+import java.util.Optional;
+
 public class EditPlayerController extends BaseController{
+
     public EditPlayerController(SceneManager sceneManager) {
         super(sceneManager);
     }
 
     public void onEditPlayer(){
-        EditPlayerDialog playerDialog = new EditPlayerDialog();
-        playerDialog.showDialog();
+        EditPlayerDialog playerDialog = new EditPlayerDialog(this);
+        Optional<Player> result = playerDialog.showDialog();
+        if(result.isPresent()) {
+            Player player = result.get();
+            sceneManager.updatePlayerInEditScene(player);
+        }
     }
+
 
     public void onBack(){
         sceneManager.showMainMenuScene();
