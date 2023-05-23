@@ -38,6 +38,7 @@ public class SceneManager {
 
     public SceneManager(Stage stage){
         this.stage = stage;
+        this.game = new Game();
 
 
         //controllers
@@ -80,6 +81,10 @@ public class SceneManager {
     public void updatePlayerInEditScene(Player player) {
         editPlayerScene.updatePlayerInfo(player);
         gameScene.updateLabels(player);
+    }
+
+    public Game getGame() {
+        return game;
     }
 
     public Stage getStage() {

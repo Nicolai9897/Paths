@@ -17,7 +17,7 @@ public abstract class BaseController {
 
     public BaseController(SceneManager sceneManager) {
         this.sceneManager = sceneManager;
-        this.game = new Game();
+        this.game = sceneManager.getGame();
     }
 
     public void receivePlayerDetails(Player player) {
