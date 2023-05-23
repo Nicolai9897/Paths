@@ -11,31 +11,29 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import no.ntnu.idatg2001.paths.ui.controllers.EditGoalsController;
-import no.ntnu.idatg2001.paths.ui.controllers.MainMenuController;
 
 public class EditGoalsScene extends  BaseScene{
 
     private final EditGoalsController editGoalsController;
 
     public EditGoalsScene(SceneManager sceneManager, Stage stage, EditGoalsController controller) {
-        super(sceneManager, stage);
+        super(sceneManager, stage, controller);
         this.editGoalsController = controller;
     }
 
     @Override
     protected void setupScene() {
         //UI controls design
-        //ComboBox<String> goalTypesComboBox = new ComboBox<>();
-        //goalTypesComboBox.getItems().addAll("GoldGoal", "HealthGoal", "InventoryGoal", "ScoreGoal");
+
 
         //Left controls
 
         Label goalType = new Label("Goal type: ");
         Label goalValue = new Label("Goal value: ");
-        ChoiceBox<String> choiceBox = new ChoiceBox<>();
-        choiceBox.getItems().addAll("GoldGoal", "HealthGoal", "InventoryGoal", "ScoreGoal");
+        ComboBox<String> goalTypesComboBox = new ComboBox<>();
+        goalTypesComboBox.getItems().addAll("GoldGoal", "HealthGoal", "InventoryGoal", "ScoreGoal");
         Tooltip tooltip = new Tooltip("Select Goal type");
-        choiceBox.setTooltip(tooltip);
+        goalTypesComboBox.setTooltip(tooltip);
 
         TextField goalValueField = new TextField();
         Button addGoalButton = new Button("Add Goal");
@@ -52,7 +50,7 @@ public class EditGoalsScene extends  BaseScene{
         //Left container
         GridPane grid = new GridPane();
         grid.add(goalType,0, 0);
-        grid.add(choiceBox, 1, 0);
+        grid.add(goalTypesComboBox, 1, 0);
         grid.add(goalValue,0 ,2);
         grid.add(goalValueField, 1, 2);
         grid.setVgap(5);
@@ -94,8 +92,9 @@ public class EditGoalsScene extends  BaseScene{
         pane.setBottom(bottomNode);
 
         //Button functionality
-        backButton.setOnAction(e -> editGoalsController.onMenuBarHome());
+        backButton.setOnAction(e -> sceneManager.showMainMenuScene());
 
         scene = new Scene(pane, 840, 600);
     }
+
 }

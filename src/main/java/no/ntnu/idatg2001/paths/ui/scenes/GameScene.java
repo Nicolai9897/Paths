@@ -9,14 +9,22 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import no.ntnu.idatg2001.paths.Game;
+import no.ntnu.idatg2001.paths.Player;
 import no.ntnu.idatg2001.paths.ui.controllers.GameController;
 
 public class GameScene extends BaseScene{
 
     private GameController gameController;
+    private Label playerName;
+    private Label playerGold;
+    private Label playerHealth;
+    private Label playerScore;
+    ListView<String> inventoryList;
+    Button backButton;
 
     public GameScene(SceneManager sceneManager, Stage stage, GameController controller){
-        super(sceneManager, stage);
+        super(sceneManager, stage, controller);
         this.gameController = controller;
     }
     @Override
@@ -29,7 +37,6 @@ public class GameScene extends BaseScene{
         titleBox.setPrefWidth(400.0);
         titleBox.setPrefHeight(100.0);
         titleBox.setAlignment(Pos.CENTER);
-        titleBox.setStyle("-fx-border-color:black;");
 
         //Passage title and text
         Label passageTitle = new Label("Passage Title");
@@ -52,32 +59,37 @@ public class GameScene extends BaseScene{
         VBox passagesAndConfirm = new VBox(20, chooseLink, listView, confirmButton);
         passagesAndConfirm.setAlignment(Pos.CENTER);
 
+        backButton = new Button("Back");
+        VBox backBox = new VBox(backButton);
+
 
         //Player stats
         Label playerStats = new Label("Player statistics");
+        Label nameLabel = new Label("Name: ");
+        playerName = new Label("name");
         Label goldLabel = new Label("Gold: ");
-        Label playerGold = new Label("xxxx");
+        playerGold = new Label("0");
         Label healthLabel = new Label("Health: ");
-        Label playerHealth = new Label("xxxx");
+        playerHealth = new Label("0");
         Label scoreLabel = new Label("Score: ");
-        Label playerScore = new Label("xxxx");
+        playerScore = new Label("0");
         GridPane grid = new GridPane();
-        grid.add(goldLabel, 0, 0);
-        grid.add(playerGold, 1, 0);
-        grid.add(healthLabel, 0, 1);
-        grid.add(playerHealth, 1, 1);
-        grid.add(scoreLabel, 0, 2);
-        grid.add(playerScore, 1, 2);
+        grid.add(nameLabel, 0,0);
+        grid.add(playerName,1,0);
+        grid.add(goldLabel, 0, 1);
+        grid.add(playerGold, 1, 1);
+        grid.add(healthLabel, 0, 2);
+        grid.add(playerHealth, 1, 2);
+        grid.add(scoreLabel, 0, 3);
+        grid.add(playerScore, 1, 3);
         VBox leftPlayerStats = new VBox(grid);
         leftPlayerStats.setAlignment(Pos.CENTER);
 
         Label inventoryLabel = new Label("Inventory");
-        ListView<String> inventoryList = new ListView<>();
+        inventoryList = new ListView<>();
         VBox playerRightStats = new VBox(10, inventoryLabel, inventoryList);
         playerRightStats.setAlignment(Pos.CENTER);
         inventoryList.setStyle("-fx-border-color:black;");
-        inventoryList.getItems().add("Item 1");
-        inventoryList.getItems().add("Item 2");
         HBox playerStatsBox = new HBox(20, leftPlayerStats,playerRightStats);
         playerStatsBox.setPrefHeight(100);
         playerStatsBox.setStyle("-fx-border-color:black;");
@@ -90,29 +102,45 @@ public class GameScene extends BaseScene{
         storyGoals.getItems().add("Goal 1");
         storyGoals.getItems().add("Goal 2");
 
-        VBox storyBox = new VBox(10, storyGoalLabel, storyGoals);
-        storyBox.setAlignment(Pos.CENTER);
-        storyBox.setPrefHeight(100);
+        VBox storyGoalBox = new VBox(10, storyGoalLabel, storyGoals);
+        storyGoalBox.setAlignment(Pos.CENTER);
+        storyGoalBox.setPrefHeight(100);
 
 
         AnchorPane pane = new AnchorPane();
         AnchorPane.setTopAnchor(menuBar, 0.0);
         AnchorPane.setLeftAnchor(menuBar, 0.0);
-        AnchorPane.setTopAnchor(titleBox, 0.0);
+        AnchorPane.setRightAnchor(menuBar,0.0);
+        AnchorPane.setTopAnchor(titleBox, 10.0);
         AnchorPane.setLeftAnchor(titleBox, 220.0);
         AnchorPane.setTopAnchor(titleAndText, 120.0);
         AnchorPane.setLeftAnchor(titleAndText, 20.0);
         AnchorPane.setTopAnchor(passagesAndConfirm, 120.0);
         AnchorPane.setRightAnchor(passagesAndConfirm, 20.0);
-        AnchorPane.setBottomAnchor(playerStatistics, 25.0);
+        AnchorPane.setBottomAnchor(playerStatistics, 75.0);
         AnchorPane.setLeftAnchor(playerStatistics, 25.0);
-        AnchorPane.setBottomAnchor(storyBox, 25.0);
-        AnchorPane.setRightAnchor(storyBox, 25.0);
+        AnchorPane.setBottomAnchor(storyGoalBox, 75.0);
+        AnchorPane.setRightAnchor(storyGoalBox, 25.0);
+        AnchorPane.setBottomAnchor(backBox,25.0);
+        AnchorPane.setLeftAnchor(backBox,25.0);
 
-        pane.getChildren().addAll(menuBar, titleBox, titleAndText, passagesAndConfirm, playerStatistics, storyBox);
+        pane.getChildren().addAll(menuBar, titleBox, titleAndText, passagesAndConfirm, playerStatistics, storyGoalBox, backBox);
+        backButton.setOnAction(e -> gameController.onBackButton());
 
 
         scene = new Scene(pane, 840, 600);
 
+    }
+
+    public void updateLabels(Player player) {
+        playerName.setText(player.getName());
+        playerGold.setText(String.valueOf(player.getGold()));
+        playerHealth.setText(String.valueOf(player.getHealth()));
+        playerScore.setText(String.valueOf(player.getScore()));
+        inventoryList.getItems().addAll(player.getInventory());
+
+    }
+    public Button getFocusButton() {
+        return backButton;
     }
 }
