@@ -16,12 +16,15 @@ import no.ntnu.idatg2001.paths.ui.controllers.GameController;
 public class GameScene extends BaseScene{
 
     private GameController gameController;
-    private Player player;
+    private Label playerName;
+    private Label playerGold;
+    private Label playerHealth;
+    private Label playerScore;
+    ListView<String> inventoryList;
 
     public GameScene(SceneManager sceneManager, Stage stage, GameController controller){
         super(sceneManager, stage, controller);
         this.gameController = controller;
-        this.player = gameController.getPlayer();
     }
     @Override
     protected void setupScene() {
@@ -59,29 +62,31 @@ public class GameScene extends BaseScene{
 
         //Player stats
         Label playerStats = new Label("Player statistics");
+        Label nameLabel = new Label("Name: ");
+        playerName = new Label("name");
         Label goldLabel = new Label("Gold: ");
-        Label playerGold = new Label("xxxx");
+        playerGold = new Label("0");
         Label healthLabel = new Label("Health: ");
-        Label playerHealth = new Label("xxxx");
+        playerHealth = new Label("0");
         Label scoreLabel = new Label("Score: ");
-        Label playerScore = new Label("xxxx");
+        playerScore = new Label("0");
         GridPane grid = new GridPane();
-        grid.add(goldLabel, 0, 0);
-        grid.add(playerGold, 1, 0);
-        grid.add(healthLabel, 0, 1);
-        grid.add(playerHealth, 1, 1);
-        grid.add(scoreLabel, 0, 2);
-        grid.add(playerScore, 1, 2);
+        grid.add(nameLabel, 0,0);
+        grid.add(playerName,1,0);
+        grid.add(goldLabel, 0, 1);
+        grid.add(playerGold, 1, 1);
+        grid.add(healthLabel, 0, 2);
+        grid.add(playerHealth, 1, 2);
+        grid.add(scoreLabel, 0, 3);
+        grid.add(playerScore, 1, 3);
         VBox leftPlayerStats = new VBox(grid);
         leftPlayerStats.setAlignment(Pos.CENTER);
 
         Label inventoryLabel = new Label("Inventory");
-        ListView<String> inventoryList = new ListView<>();
+        inventoryList = new ListView<>();
         VBox playerRightStats = new VBox(10, inventoryLabel, inventoryList);
         playerRightStats.setAlignment(Pos.CENTER);
         inventoryList.setStyle("-fx-border-color:black;");
-        inventoryList.getItems().add("Item 1");
-        inventoryList.getItems().add("Item 2");
         HBox playerStatsBox = new HBox(20, leftPlayerStats,playerRightStats);
         playerStatsBox.setPrefHeight(100);
         playerStatsBox.setStyle("-fx-border-color:black;");
@@ -117,6 +122,15 @@ public class GameScene extends BaseScene{
 
 
         scene = new Scene(pane, 840, 600);
+
+    }
+
+    public void updateLabels(Player player) {
+        playerName.setText(player.getName());
+        playerGold.setText(String.valueOf(player.getGold()));
+        playerHealth.setText(String.valueOf(player.getHealth()));
+        playerScore.setText(String.valueOf(player.getScore()));
+        inventoryList.getItems().addAll(player.getInventory());
 
     }
 }

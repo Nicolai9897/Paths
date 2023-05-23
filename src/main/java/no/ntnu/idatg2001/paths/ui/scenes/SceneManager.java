@@ -79,6 +79,7 @@ public class SceneManager {
 
     public void updatePlayerInEditScene(Player player) {
         editPlayerScene.updatePlayerInfo(player);
+        gameScene.updateLabels(player);
     }
 
     public Stage getStage() {

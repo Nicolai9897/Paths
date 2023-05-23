@@ -45,10 +45,21 @@ public class EditPlayerDialog extends Dialog<ButtonType> {
 
     dialog.setResultConverter(b -> {
       if (b == buttonTypeOk) {
+        String healthText = healthField.getText();
+        String goldText = goldField.getText();
+        if (!healthText.matches("\\d+") || !goldText.matches("\\d+")) {
+          Alert alert = new Alert(Alert.AlertType.ERROR, "Health and Gold must be numeric!", ButtonType.OK);
+          alert.showAndWait();
+          return null;
+        }
+
+        int health = Integer.parseInt(healthText);
+        int gold = Integer.parseInt(goldText);
+
         PlayerBuilder builder = new PlayerBuilder()
                 .withName(nameField.getText())
-                .withHealth(Integer.parseInt(healthField.getText()))
-                .withGold(Integer.parseInt(goldField.getText()));
+                .withHealth(health)
+                .withGold(gold);
 
         return builder.build();
       }
@@ -56,6 +67,8 @@ public class EditPlayerDialog extends Dialog<ButtonType> {
     });
 
     Optional<Player> result = dialog.showAndWait();
+    result.ifPresent(player -> controller.receivePlayerDetails(result.get()));
+
     return result;
   }
 

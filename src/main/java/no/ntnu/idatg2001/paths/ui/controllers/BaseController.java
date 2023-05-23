@@ -17,12 +17,16 @@ public abstract class BaseController {
 
     public BaseController(SceneManager sceneManager) {
         this.sceneManager = sceneManager;
+        this.game = new Game();
     }
 
     public void receivePlayerDetails(Player player) {
         game.setPlayer(player);
     }
 
+    public Game getGame() {
+        return game;
+    }
     public Player getPlayer() {
         return player;
     }
