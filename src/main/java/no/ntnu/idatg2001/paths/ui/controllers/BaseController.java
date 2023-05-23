@@ -1,23 +1,23 @@
 package no.ntnu.idatg2001.paths.ui.controllers;
 
 import javafx.application.Platform;
-import no.ntnu.idatg2001.paths.Game;
-import no.ntnu.idatg2001.paths.Player;
+import no.ntnu.idatg2001.paths.base.Game;
+import no.ntnu.idatg2001.paths.Player.Player;
 import no.ntnu.idatg2001.paths.ui.dialogs.HelpDialog;
 import no.ntnu.idatg2001.paths.ui.scenes.SceneManager;
-import no.ntnu.idatg2001.paths.utility.FileHandler;
+import no.ntnu.idatg2001.paths.utility.FileReader;
 
 public abstract class BaseController {
 
     protected SceneManager sceneManager;
-    protected FileHandler fileHandler;
+    protected FileReader fileHandler;
     protected Game game;
     protected  Player player;
 
     public BaseController(SceneManager sceneManager) {
         this.sceneManager = sceneManager;
         this.game = sceneManager.getGame();
-        this.fileHandler = new FileHandler();
+        this.fileHandler = new FileReader();
     }
 
     public void receivePlayerDetails(Player player) {

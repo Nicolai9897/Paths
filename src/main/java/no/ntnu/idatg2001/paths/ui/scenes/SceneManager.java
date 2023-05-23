@@ -1,12 +1,9 @@
 package no.ntnu.idatg2001.paths.ui.scenes;
 
 import javafx.application.Platform;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
-import no.ntnu.idatg2001.paths.Game;
-import no.ntnu.idatg2001.paths.Player;
+import no.ntnu.idatg2001.paths.base.Game;
+import no.ntnu.idatg2001.paths.Player.Player;
 import no.ntnu.idatg2001.paths.ui.controllers.*;
 
 
