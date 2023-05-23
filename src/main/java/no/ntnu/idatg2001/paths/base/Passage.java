@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * The type Passage.
  *
- * @author Nicolai Olsen & Anders Brunsberg Mariendal
+ * Candidate nr. 10029 & Candidate nr. 10023
  * @version 1.0-SNAPSHOT
  */
 public class Passage {

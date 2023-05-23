@@ -6,6 +6,9 @@ import no.ntnu.idatg2001.paths.player.Player;
 /**
  * The HealthGoal class implements the Goal interface. Checks if the player's
  * health is above a certain threshold.
+ *
+ * @author Candidate nr. 10029 & Candidate nr. 10023
+ * @version 1.0-SNAPSHOT
  */
 public class HealthGoal implements Goal {
 
@@ -28,7 +31,7 @@ public class HealthGoal implements Goal {
    * @return true if the player has achieved the goal, false if not.
    */
   @Override
-  public boolean isFullfilled(Player player) {
+  public boolean isFulfilled(Player player) {
     return Stream.of(player)
         .map(Player::getHealth)
         .anyMatch(health -> health <= minimumHealth);

@@ -10,6 +10,9 @@ import java.util.List;
 /**
  * The InventoryGoal class implements the Goal interface. Checks if the player
  * * possesses all the desired items.
+ *
+ * @author Candidate nr. 10029 & Candidate nr. 10023
+ * @version 1.0-SNAPSHOT
  */
 public class InventoryGoal implements Goal {
 
@@ -32,7 +35,7 @@ public class InventoryGoal implements Goal {
    * @return true if the player has gotten hold of a winning item, false if not.
    */
   @Override
-  public boolean isFullfilled(Player player) {
+  public boolean isFulfilled(Player player) {
     return Stream.of(player)
         .map(Player::getInventory)
         .anyMatch(inventory -> new HashSet<>(inventory)

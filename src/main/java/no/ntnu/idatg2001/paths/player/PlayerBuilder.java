@@ -1,5 +1,12 @@
 package no.ntnu.idatg2001.paths.player;
 
+/**
+ * PlayeBuilder class provides a builder for the Player object.
+ * Utilizes the builder design pattern, allowing for a flexible creation of the Player object.
+ *
+ * @author Candidate nr. 10029 & Candidate nr. 10023
+ * @version 1.0-SNAPSHOT
+ */
 public class PlayerBuilder {
   private String name;
   private int health;
@@ -8,6 +15,7 @@ public class PlayerBuilder {
 
     /**
      * Instantiates a new Player builder.
+     *
      */
   public PlayerBuilder() {
 

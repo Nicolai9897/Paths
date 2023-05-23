@@ -31,8 +31,8 @@ public class ScoreGoalTest {
          */
         @Test
         void testIsFullfilled(){
-          assertFalse(scoreGoal.isFullfilled(player));
+          assertFalse(scoreGoal.isFulfilled(player));
             player.addScore(100);
-          assertTrue(scoreGoal.isFullfilled(player));
+          assertTrue(scoreGoal.isFulfilled(player));
         }
 }

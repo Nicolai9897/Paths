@@ -4,7 +4,8 @@ import no.ntnu.idatg2001.paths.player.Player;
 
 /**
  * The ScoreAction class implements the Action interface. Contains methods
- * * for altering the player's score.
+ * for altering the player's score.
+ * @author Candidate nr. 10029 & Candidate nr. 10023
  */
 public class ScoreAction implements Action {
 

@@ -31,9 +31,9 @@ public class GoldGoalTest {
      */
     @Test
     void testIsFullfilled(){
-        assertFalse(goldGoal.isFullfilled(player));
+        assertFalse(goldGoal.isFulfilled(player));
         player.addGold(600);
-        assertTrue(goldGoal.isFullfilled(player));
+        assertTrue(goldGoal.isFulfilled(player));
     }
 
 

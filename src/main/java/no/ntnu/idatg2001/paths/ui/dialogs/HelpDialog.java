@@ -6,6 +6,9 @@ import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
+/**
+ * Class for the help dialog.
+ */
 public class HelpDialog extends Dialog<Void> {
 
     public HelpDialog(String infoText) {

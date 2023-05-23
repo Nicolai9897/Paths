@@ -8,6 +8,9 @@ import no.ntnu.idatg2001.paths.ui.controllers.EditPlayerController;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * Dialog for editing the player information
+ */
 public class EditPlayerDialog extends Dialog<ButtonType> {
 
   private final EditPlayerController controller;
@@ -20,12 +23,20 @@ public class EditPlayerDialog extends Dialog<ButtonType> {
   private final Label goldLabel = new Label("Gold");
   private final TextField goldField = new TextField();
 
-
+  /**
+   * Constructor for EditPlayerDialog
+   * @param controller
+   */
   public EditPlayerDialog(EditPlayerController controller) {
     super();
     this.controller = controller;
   }
 
+  /**
+   * Sets up and shows the dialog. Implemented check for if the name string is not empty,
+   * and that the health and gold input are numeric.
+   * @return
+   */
   public Optional<Player> showDialog() {
     Dialog<Player> dialog = new Dialog<>();
     dialog.setTitle("New Player");

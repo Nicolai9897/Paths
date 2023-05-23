@@ -6,6 +6,9 @@ import no.ntnu.idatg2001.paths.player.Player;
 /**
  * The GoldGoal class implements the Goal interface. Checks if the player has
  * reached a certain threshold for gold quantity.
+ *
+ * @author Candidate nr. 10029 & Candidate nr. 10023
+ * @version 1.0-SNAPSHOT
  */
 public class GoldGoal implements Goal {
   private final int minimumGold;
@@ -25,7 +28,7 @@ public class GoldGoal implements Goal {
    * @return true if the player has achieved the goal, false if not.
    */
   @Override
-  public boolean isFullfilled(Player player) {
+  public boolean isFulfilled(Player player) {
     return Stream.of(player)
         .map(Player::getGold)
         .anyMatch(gold -> gold >= minimumGold);

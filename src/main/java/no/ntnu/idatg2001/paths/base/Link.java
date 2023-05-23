@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Link is a class to go from one passage to
+ * Link is a class to go from one passage to another
  *
- * @author Nicolai Olsen & Anders Brunsberg Mariendal
+ * @author Candidate nr. 10029 & Candidate nr. 10023
  * @version 1.0-SNAPSHOT
  */
 public class Link {

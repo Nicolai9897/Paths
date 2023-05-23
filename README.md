@@ -2,7 +2,6 @@
 This is the final version of the Paths project in the course IDATG2001.
 Paths is a non-linear text based story game that can be played through a JavaFX application.
 
-Authors: Nicolai Olsen & Anders Brunsberg Mariendal
 
 
 ## How to run (IntelliJ)

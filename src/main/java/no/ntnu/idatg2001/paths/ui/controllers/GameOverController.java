@@ -1,19 +1,31 @@
 package no.ntnu.idatg2001.paths.ui.controllers;
 
-
 import no.ntnu.idatg2001.paths.ui.scenes.SceneManager;
 
+/**
+ * Controller for the GameOverScene. Handles the actions for when something happens in the scene.
+ * Inherits from the Super Class BaseController.
+ */
 public class GameOverController extends BaseController{
 
+    /**
+     * Constructor for the GameOverController.
+     */
     public GameOverController(SceneManager sceneManager) {
         super(sceneManager);
     }
 
+    /**
+     * Handles actoin for when the restart game button is pressed.
+     */
     public void onRestartGame() {
         sceneManager.showGameScene();
         //TODO: functionality for actually restarting the game, resetting player etc..
     }
 
+    /**
+     * Handles action for when the close game button is pressed.
+     */
     public void onCloseGame() {
         sceneManager.showMainMenuScene();
     }

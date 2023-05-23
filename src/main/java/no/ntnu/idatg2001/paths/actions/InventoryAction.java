@@ -5,7 +5,8 @@ import no.ntnu.idatg2001.paths.player.Player;
 
 /**
  * The InventoryAction class implements the Action interface. Contains methods
- * * for altering the items in the player's inventory.
+ *  for altering the items in the player's inventory.
+ *  @author Candidate nr. 10029 & Candidate nr. 10023
  */
 public class InventoryAction implements Action {
 

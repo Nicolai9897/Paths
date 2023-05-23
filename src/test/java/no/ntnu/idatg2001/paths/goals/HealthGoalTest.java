@@ -28,9 +28,9 @@ public class HealthGoalTest {
      */
   @Test
   void testIsFullfilled() {
-    assertFalse(healthGoal.isFullfilled(player));
+    assertFalse(healthGoal.isFulfilled(player));
     player.addHealth(-100);
-    assertTrue(healthGoal.isFullfilled(player));
+    assertTrue(healthGoal.isFulfilled(player));
   }
 
 }

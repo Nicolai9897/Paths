@@ -33,10 +33,10 @@ class InventoryGoalTest {
    */
   @Test
   void testIsFullfilled() {
-    assertFalse(inventoryGoal.isFullfilled(player));
+    assertFalse(inventoryGoal.isFulfilled(player));
     player.addToInventory("sword");
-    assertTrue(inventoryGoal.isFullfilled(player));
+    assertTrue(inventoryGoal.isFulfilled(player));
     player.addToInventory("shield");
-    assertTrue(inventoryGoal.isFullfilled(player));
+    assertTrue(inventoryGoal.isFulfilled(player));
   }
 }

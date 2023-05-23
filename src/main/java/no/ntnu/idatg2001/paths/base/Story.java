@@ -13,7 +13,6 @@ import java.util.Map;
 /**
  * The type Story.
  *
- * @author Nicolai Olsen & Anders Brunsberg Mariendal
  * @version 1.0-SNAPSHOT
  */
 public class Story {
