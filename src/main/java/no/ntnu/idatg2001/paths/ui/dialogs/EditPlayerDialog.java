@@ -45,9 +45,10 @@ public class EditPlayerDialog extends Dialog<ButtonType> {
 
     dialog.setResultConverter(b -> {
       if (b == buttonTypeOk) {
+        String nameText = nameField.getText();
         String healthText = healthField.getText();
         String goldText = goldField.getText();
-        if (Objects.equals(healthText, "") || !healthText.matches("\\d+") || !goldText.matches("\\d+")) {
+        if (Objects.equals(nameText, "") || !healthText.matches("\\d+") || !goldText.matches("\\d+")) {
           Alert alert = new Alert(Alert.AlertType.ERROR, "You must enter a name, and health and gold must be numeric!", ButtonType.OK);
           alert.showAndWait();
           return null;
