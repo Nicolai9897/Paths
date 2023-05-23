@@ -24,10 +24,7 @@ public class EditGoalsScene extends  BaseScene{
     @Override
     protected void setupScene() {
         //UI controls design
-
-
         //Left controls
-
         Label goalType = new Label("Goal type: ");
         Label goalValue = new Label("Goal value: ");
         ComboBox<String> goalTypesComboBox = new ComboBox<>();
@@ -81,8 +78,6 @@ public class EditGoalsScene extends  BaseScene{
         VBox bottomNode = new VBox(backButton);
         bottomNode.setPadding(new Insets(25));
 
-
-
         //Pane setup
         BorderPane pane = new BorderPane();
         pane.setTop(menuBar);
@@ -92,7 +87,7 @@ public class EditGoalsScene extends  BaseScene{
         pane.setBottom(bottomNode);
 
         //Button functionality
-        backButton.setOnAction(e -> sceneManager.showMainMenuScene());
+        backButton.setOnAction(e -> editGoalsController.onBackButton());
 
         scene = new Scene(pane, 840, 600);
     }

@@ -8,8 +8,8 @@ import no.ntnu.idatg2001.paths.ui.controllers.*;
 
 
 public class SceneManager {
-    private Stage stage;
-    private Game game;
+    private final Stage stage;
+    private final Game game;
 
     //Controllers
     private MainMenuController mainMenuController;
@@ -50,9 +50,6 @@ public class SceneManager {
         Platform.runLater(() -> {
             mainMenuScene.getFocusButton().requestFocus();
         });
-
-
-
     }
 
     public void showGameScene() {
@@ -60,7 +57,6 @@ public class SceneManager {
         Platform.runLater(() -> {
             gameScene.getFocusButton().requestFocus();
         });
-
     }
 
     public void showEditPlayerScene(){
@@ -90,7 +86,4 @@ public class SceneManager {
     public Stage getStage() {
         return this.stage;
     }
-
-
-
 }

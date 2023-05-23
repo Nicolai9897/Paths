@@ -16,7 +16,7 @@ import no.ntnu.idatg2001.paths.ui.controllers.EditPlayerController;
 
 public class EditPlayerScene extends  BaseScene {
 
-    private EditPlayerController editPlayerController;
+    private final EditPlayerController editPlayerController;
     private Label playerNameLabel;
     private Label playerHealthLabel;
     private Label playerGoldLabel;

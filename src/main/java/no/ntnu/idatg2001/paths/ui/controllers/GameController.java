@@ -1,6 +1,5 @@
 package no.ntnu.idatg2001.paths.ui.controllers;
 
-
 import no.ntnu.idatg2001.paths.ui.scenes.SceneManager;
 
 public class GameController extends BaseController{

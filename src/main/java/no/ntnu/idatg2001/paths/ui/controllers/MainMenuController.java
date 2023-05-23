@@ -3,7 +3,6 @@ package no.ntnu.idatg2001.paths.ui.controllers;
 import javafx.scene.control.Alert;
 import javafx.stage.FileChooser;
 import no.ntnu.idatg2001.paths.ui.scenes.SceneManager;
-
 import java.io.File;
 
 public class MainMenuController extends BaseController {

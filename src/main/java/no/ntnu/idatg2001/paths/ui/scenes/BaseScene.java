@@ -1,6 +1,5 @@
 package no.ntnu.idatg2001.paths.ui.scenes;
 
-import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -33,7 +32,7 @@ public abstract class BaseScene {
         menuBar.getMenus().add(fileMenu);
         MenuItem closeItem = new MenuItem("Exit");
         fileMenu.getItems().addAll(closeItem);
-        closeItem.setOnAction(e -> Platform.exit());
+        closeItem.setOnAction(e -> controller.onMenuBarExit());
 
         Menu aboutMenu = new Menu("About");
         menuBar.getMenus().add(aboutMenu);

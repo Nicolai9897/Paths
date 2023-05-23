@@ -5,20 +5,20 @@ import javafx.scene.layout.GridPane;
 import no.ntnu.idatg2001.paths.Player.Player;
 import no.ntnu.idatg2001.paths.Player.PlayerBuilder;
 import no.ntnu.idatg2001.paths.ui.controllers.EditPlayerController;
-
+import java.util.Objects;
 import java.util.Optional;
 
 public class EditPlayerDialog extends Dialog<ButtonType> {
 
-  private EditPlayerController controller;
+  private final EditPlayerController controller;
 
-  private GridPane grid = new GridPane();
-  private Label nameLabel = new Label("Name");
-  private TextField nameField = new TextField();
-  private Label healthLabel = new Label("Health");
-  private TextField healthField = new TextField();
-  private Label goldLabel = new Label("Gold");
-  private TextField goldField = new TextField();
+  private final GridPane grid = new GridPane();
+  private final Label nameLabel = new Label("Name");
+  private final TextField nameField = new TextField();
+  private final Label healthLabel = new Label("Health");
+  private final TextField healthField = new TextField();
+  private final Label goldLabel = new Label("Gold");
+  private final TextField goldField = new TextField();
 
 
   public EditPlayerDialog(EditPlayerController controller) {
@@ -47,8 +47,8 @@ public class EditPlayerDialog extends Dialog<ButtonType> {
       if (b == buttonTypeOk) {
         String healthText = healthField.getText();
         String goldText = goldField.getText();
-        if (!healthText.matches("\\d+") || !goldText.matches("\\d+")) {
-          Alert alert = new Alert(Alert.AlertType.ERROR, "Health and Gold must be numeric!", ButtonType.OK);
+        if (Objects.equals(healthText, "") || !healthText.matches("\\d+") || !goldText.matches("\\d+")) {
+          Alert alert = new Alert(Alert.AlertType.ERROR, "You must enter a name, and health and gold must be numeric!", ButtonType.OK);
           alert.showAndWait();
           return null;
         }

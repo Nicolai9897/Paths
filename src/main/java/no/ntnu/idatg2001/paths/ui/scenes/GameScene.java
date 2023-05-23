@@ -2,7 +2,6 @@ package no.ntnu.idatg2001.paths.ui.scenes;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -14,13 +13,13 @@ import no.ntnu.idatg2001.paths.ui.controllers.GameController;
 
 public class GameScene extends BaseScene{
 
-    private GameController gameController;
+    private final GameController gameController;
     private Label playerName;
     private Label playerGold;
     private Label playerHealth;
     private Label playerScore;
-    ListView<String> inventoryList;
-    Button backButton;
+    private ListView<String> inventoryList;
+    private Button backButton;
 
     public GameScene(SceneManager sceneManager, Stage stage, GameController controller){
         super(sceneManager, stage, controller);

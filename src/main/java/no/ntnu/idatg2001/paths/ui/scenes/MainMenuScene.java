@@ -15,7 +15,7 @@ import no.ntnu.idatg2001.paths.ui.controllers.MainMenuController;
 public class MainMenuScene extends BaseScene{
 
     private final MainMenuController mainMenuController;
-    Button startButton;
+    private Button startButton;
 
     public MainMenuScene(SceneManager sceneManager, Stage stage,MainMenuController controller) {
         super(sceneManager, stage, controller);
@@ -62,10 +62,7 @@ public class MainMenuScene extends BaseScene{
         editGoalsButton.setOnAction(e -> mainMenuController.onEditGoals());
 
         scene = new Scene(pane, 840, 600);
-
-
     }
-
 
     public Button getFocusButton() {
         return startButton;
