@@ -1,4 +1,4 @@
-package no.ntnu.idatg2001.paths.utility;
+package no.ntnu.idatg2001.paths;
 
 import no.ntnu.idatg2001.paths.ui.PathsApp;
 

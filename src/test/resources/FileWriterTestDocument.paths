@@ -1,26 +1,26 @@
 Haunted House
 
-:: Beginnings
+::Beginnings
 You are in a small, dimly lit room. There is a door in front of you.
 [Try to open the door](Another room)
 
-:: The other next room
+::The other next room
 You have entered the other next room. You have gained 50 points and 30 gold.
 [Go back](The next room)
 
-:: The book of spells
+::The book of spells
 You open the book and see a list of spells. You read one aloud.
 [Go back](Another room)
 [Go to next room](The next room)
 {HEALTH}(-10)
 {INVENTORY}(sword)
 
-:: Another room
+::Another room
 The door opens to another room. You see a desk with a large, dusty book.
 [Open the book](The book of spells)
 [Go back](Beginnings)
 
-:: The next room
+::The next room
 You have entered the next room to great discomfort. You have lost 10 healthpoints, but you found a sword.
 [Go to the other next room](The other next room)
 {SCORE}(50)

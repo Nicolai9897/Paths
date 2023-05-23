@@ -8,7 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import no.ntnu.idatg2001.paths.Player.Player;
+import no.ntnu.idatg2001.paths.player.Player;
 import no.ntnu.idatg2001.paths.ui.controllers.GameController;
 
 public class GameScene extends BaseScene{

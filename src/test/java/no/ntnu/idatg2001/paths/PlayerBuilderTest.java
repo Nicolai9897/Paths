@@ -2,8 +2,8 @@ package no.ntnu.idatg2001.paths;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import no.ntnu.idatg2001.paths.Player.Player;
-import no.ntnu.idatg2001.paths.Player.PlayerBuilder;
+import no.ntnu.idatg2001.paths.player.Player;
+import no.ntnu.idatg2001.paths.player.PlayerBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

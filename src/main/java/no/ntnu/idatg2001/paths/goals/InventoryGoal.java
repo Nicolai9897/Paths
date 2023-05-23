@@ -1,8 +1,8 @@
-package no.ntnu.idatg2001.paths.Goals;
+package no.ntnu.idatg2001.paths.goals;
 
 import java.util.HashSet;
 import java.util.stream.Stream;
-import no.ntnu.idatg2001.paths.Player.Player;
+import no.ntnu.idatg2001.paths.player.Player;
 
 import java.util.ArrayList;
 import java.util.List;

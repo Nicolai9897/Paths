@@ -1,6 +1,6 @@
 package no.ntnu.idatg2001.paths.utility;
 
-import no.ntnu.idatg2001.paths.Actions.*;
+import no.ntnu.idatg2001.paths.actions.*;
 import no.ntnu.idatg2001.paths.base.Link;
 import no.ntnu.idatg2001.paths.base.Passage;
 import no.ntnu.idatg2001.paths.base.Story;
@@ -40,7 +40,7 @@ public class FileWriter {
      * @param writer  the writer to write to
      */
     private static void writePassage(Passage passage, PrintWriter writer) {
-        writer.println(":: " + passage.getTitle());
+        writer.println("::" + passage.getTitle());
         writer.println(passage.getContent());
         writeLink(passage, writer);
     }

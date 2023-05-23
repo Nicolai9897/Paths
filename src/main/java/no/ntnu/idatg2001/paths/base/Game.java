@@ -1,14 +1,11 @@
 package no.ntnu.idatg2001.paths.base;
 
-import no.ntnu.idatg2001.paths.Goals.*;
+import no.ntnu.idatg2001.paths.goals.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import no.ntnu.idatg2001.paths.Player.Player;
-import no.ntnu.idatg2001.paths.base.Link;
-import no.ntnu.idatg2001.paths.base.Passage;
-import no.ntnu.idatg2001.paths.base.Story;
+import no.ntnu.idatg2001.paths.player.Player;
 
 public class Game {
   private Player player;

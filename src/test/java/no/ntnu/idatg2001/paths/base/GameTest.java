@@ -4,12 +4,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
-import no.ntnu.idatg2001.paths.Goals.Goal;
-import no.ntnu.idatg2001.paths.Goals.GoldGoal;
-import no.ntnu.idatg2001.paths.Goals.HealthGoal;
-import no.ntnu.idatg2001.paths.Goals.InventoryGoal;
-import no.ntnu.idatg2001.paths.Goals.ScoreGoal;
-import no.ntnu.idatg2001.paths.Player.Player;
+import no.ntnu.idatg2001.paths.goals.Goal;
+import no.ntnu.idatg2001.paths.goals.GoldGoal;
+import no.ntnu.idatg2001.paths.goals.HealthGoal;
+import no.ntnu.idatg2001.paths.goals.InventoryGoal;
+import no.ntnu.idatg2001.paths.goals.ScoreGoal;
+import no.ntnu.idatg2001.paths.player.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

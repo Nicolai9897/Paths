@@ -11,7 +11,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import no.ntnu.idatg2001.paths.Player.Player;
+import no.ntnu.idatg2001.paths.player.Player;
 import no.ntnu.idatg2001.paths.ui.controllers.EditPlayerController;
 
 public class EditPlayerScene extends  BaseScene {

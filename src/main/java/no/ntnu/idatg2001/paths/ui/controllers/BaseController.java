@@ -2,7 +2,7 @@ package no.ntnu.idatg2001.paths.ui.controllers;
 
 import javafx.application.Platform;
 import no.ntnu.idatg2001.paths.base.Game;
-import no.ntnu.idatg2001.paths.Player.Player;
+import no.ntnu.idatg2001.paths.player.Player;
 import no.ntnu.idatg2001.paths.ui.dialogs.HelpDialog;
 import no.ntnu.idatg2001.paths.ui.scenes.SceneManager;
 import no.ntnu.idatg2001.paths.utility.FileReader;

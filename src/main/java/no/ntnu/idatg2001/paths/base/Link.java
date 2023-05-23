@@ -1,7 +1,7 @@
 package no.ntnu.idatg2001.paths.base;
 
 import java.util.ArrayList;
-import no.ntnu.idatg2001.paths.Actions.Action;
+import no.ntnu.idatg2001.paths.actions.Action;
 
 import java.util.List;
 import java.util.Objects;

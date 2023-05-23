@@ -1,6 +1,6 @@
-package no.ntnu.idatg2001.paths.Goals;
+package no.ntnu.idatg2001.paths.goals;
 
-import no.ntnu.idatg2001.paths.Player.Player;
+import no.ntnu.idatg2001.paths.player.Player;
 
 /**
  * The interface Goal. Makes it possible to check whether the player

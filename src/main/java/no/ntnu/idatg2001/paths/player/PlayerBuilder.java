@@ -1,4 +1,4 @@
-package no.ntnu.idatg2001.paths.Player;
+package no.ntnu.idatg2001.paths.player;
 
 public class PlayerBuilder {
   private String name;

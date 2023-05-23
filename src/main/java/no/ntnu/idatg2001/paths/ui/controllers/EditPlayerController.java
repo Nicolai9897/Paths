@@ -1,6 +1,6 @@
 package no.ntnu.idatg2001.paths.ui.controllers;
 
-import no.ntnu.idatg2001.paths.Player.Player;
+import no.ntnu.idatg2001.paths.player.Player;
 import no.ntnu.idatg2001.paths.ui.dialogs.EditPlayerDialog;
 import no.ntnu.idatg2001.paths.ui.scenes.SceneManager;
 import java.util.Optional;

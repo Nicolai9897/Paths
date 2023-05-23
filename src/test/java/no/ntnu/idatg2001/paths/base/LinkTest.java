@@ -2,9 +2,9 @@ package no.ntnu.idatg2001.paths.base;
 
 import java.util.ArrayList;
 import java.util.List;
-import no.ntnu.idatg2001.paths.Actions.Action;
-import no.ntnu.idatg2001.paths.Actions.GoldAction;
-import no.ntnu.idatg2001.paths.Actions.HealthAction;
+import no.ntnu.idatg2001.paths.actions.Action;
+import no.ntnu.idatg2001.paths.actions.GoldAction;
+import no.ntnu.idatg2001.paths.actions.HealthAction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

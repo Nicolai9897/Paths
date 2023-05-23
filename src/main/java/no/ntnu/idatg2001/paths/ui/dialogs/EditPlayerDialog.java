@@ -2,8 +2,8 @@ package no.ntnu.idatg2001.paths.ui.dialogs;
 
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import no.ntnu.idatg2001.paths.Player.Player;
-import no.ntnu.idatg2001.paths.Player.PlayerBuilder;
+import no.ntnu.idatg2001.paths.player.Player;
+import no.ntnu.idatg2001.paths.player.PlayerBuilder;
 import no.ntnu.idatg2001.paths.ui.controllers.EditPlayerController;
 import java.util.Objects;
 import java.util.Optional;

@@ -1,6 +1,6 @@
-package no.ntnu.idatg2001.paths.Actions;
+package no.ntnu.idatg2001.paths.actions;
 
-import no.ntnu.idatg2001.paths.Player.Player;
+import no.ntnu.idatg2001.paths.player.Player;
 
 
 /**
